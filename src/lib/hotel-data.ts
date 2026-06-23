@@ -1,3 +1,12 @@
+import lounge from "@/assets/velsatis1.jpg.asset.json";
+import food from "@/assets/velsatis-2.jpg.asset.json";
+import twinBed from "@/assets/velsatis-3.jpg.asset.json";
+import atrium from "@/assets/velsatis-4.jpg.asset.json";
+import restaurantHall from "@/assets/velsatis-5.jpg.asset.json";
+import dessert from "@/assets/velsatis-6.jpg.asset.json";
+import pizza from "@/assets/velsatis-7.jpg.asset.json";
+import singleBed from "@/assets/velsatis-8.jpg.asset.json";
+
 export const HOTEL = {
   name: "Velsatis",
   tagline: "Hôtel · Café · Restaurant",
@@ -51,7 +60,7 @@ export const ROOMS = [
     bed: "1 twin bed",
     capacity: 1,
     price: 480,
-    image: IMAGES.twinRoom,
+    image: singleBed.url,
     description:
       "An intimate refuge designed for the solo traveller. Soft linens, private balcony and the quiet rhythm of Mohamed V boulevard at dusk.",
     amenities: ["Private balcony", "Air-conditioning", "Flat-screen TV", "Free Wifi", "Wardrobe"],
@@ -62,7 +71,7 @@ export const ROOMS = [
     bed: "2 twin beds",
     capacity: 2,
     price: 620,
-    image: IMAGES.twinMountain,
+    image: twinBed.url,
     description:
       "Twin beds dressed in patterned Moroccan linens open onto a balcony framing the Middle Atlas. The light here changes hourly.",
     amenities: ["Mountain view", "Balcony", "Air-conditioning", "Private bathroom", "Free Wifi"],
@@ -149,13 +158,17 @@ export const REVIEWS = [
 
 export const GALLERY: { src: string; alt: string; category: string }[] = [
   { src: IMAGES.heroNight, alt: "Hotel facade illuminated at night", category: "Exterior" },
-  { src: IMAGES.twinRoom, alt: "Twin room with balcony", category: "Rooms" },
-  { src: IMAGES.cafe, alt: "Café interior", category: "Dining" },
-  { src: IMAGES.lobby, alt: "Lounge with crimson chairs", category: "Interior" },
+  { src: twinBed.url, alt: "Twin room dressed in Moroccan linens", category: "Rooms" },
+  { src: pizza.url, alt: "Wood-fired pizza with the Velsatis menu", category: "Dining" },
+  { src: lounge.url, alt: "Lounge and lobby with crimson seating", category: "Interior" },
   { src: IMAGES.exteriorStreet, alt: "Velsatis building on the boulevard", category: "Exterior" },
-  { src: IMAGES.twinMountain, alt: "Twin room with mountain view", category: "Rooms" },
-  { src: IMAGES.dining, alt: "Restaurant dining area", category: "Dining" },
+  { src: singleBed.url, alt: "Single room with patterned throw", category: "Rooms" },
+  { src: restaurantHall.url, alt: "Restaurant set for service", category: "Dining" },
+  { src: atrium.url, alt: "Atrium with mezzanine and staircase", category: "Interior" },
+  { src: food.url, alt: "Plated main course with seasonal vegetables", category: "Dining" },
+  { src: dessert.url, alt: "Signature ice cream coupe", category: "Dining" },
   { src: IMAGES.exteriorDay, alt: "Hotel facade by day", category: "Exterior" },
 ];
+
 
 export const CATEGORIES = ["All", "Rooms", "Interior", "Exterior", "Dining"] as const;
