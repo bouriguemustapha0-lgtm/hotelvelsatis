@@ -1,39 +1,41 @@
 import { Instagram, Facebook } from "lucide-react";
 import { HOTEL } from "@/lib/hotel-data";
+import { useT } from "@/lib/i18n";
 
 const LINKS = [
-  { href: "#home", label: "Home" },
-  { href: "#rooms", label: "Rooms" },
-  { href: "#amenities", label: "Amenities" },
-  { href: "#gallery", label: "Gallery" },
-  { href: "#reviews", label: "Reviews" },
-  { href: "#contact", label: "Contact" },
+  { href: "#home", key: "nav.home" },
+  { href: "#rooms", key: "nav.rooms" },
+  { href: "#amenities", key: "nav.amenities" },
+  { href: "#gallery", key: "nav.gallery" },
+  { href: "#reviews", key: "nav.reviews" },
+  { href: "#contact", key: "nav.contact" },
 ];
 
 export function Footer() {
+  const t = useT();
   return (
     <footer className="bg-ink text-cream/80 border-t border-cream/10">
       <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-5">
             <div className="font-display text-3xl text-cream">Velsatis</div>
-            <p className="mt-2 text-[0.65rem] tracking-luxe uppercase text-cream/55">Hôtel · Café · Restaurant</p>
+            <p className="mt-2 text-[0.65rem] tracking-luxe uppercase text-cream/55">{t("footer.tagline")}</p>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-cream/65">
-              A boutique address in Beni Mellal — quiet luxury at the foot of the Middle Atlas, since 2012.
+              {t("footer.intro")}
             </p>
           </div>
           <div className="md:col-span-3">
-            <p className="eyebrow text-cream/50 mb-4">Navigate</p>
+            <p className="eyebrow text-cream/50 mb-4">{t("footer.navigate")}</p>
             <ul className="space-y-2.5 text-sm">
               {LINKS.map((l) => (
                 <li key={l.href}>
-                  <a href={l.href} className="text-cream/75 hover:text-gold transition-colors">{l.label}</a>
+                  <a href={l.href} className="text-cream/75 hover:text-gold transition-colors">{t(l.key)}</a>
                 </li>
               ))}
             </ul>
           </div>
           <div className="md:col-span-4">
-            <p className="eyebrow text-cream/50 mb-4">Contact</p>
+            <p className="eyebrow text-cream/50 mb-4">{t("footer.contact")}</p>
             <ul className="space-y-2.5 text-sm text-cream/75">
               <li>{HOTEL.address}</li>
               <li><a href={`tel:${HOTEL.phone}`} className="hover:text-gold transition-colors">{HOTEL.phone}</a></li>
@@ -47,8 +49,8 @@ export function Footer() {
         </div>
 
         <div className="mt-14 pt-8 border-t border-cream/10 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-[0.65rem] tracking-luxe uppercase text-cream/50">
-          <p>© {new Date().getFullYear()} Hotel Velsatis · License {HOTEL.license}</p>
-          <p>Crafted in Beni Mellal, Morocco</p>
+          <p>{t("footer.copyright", { year: new Date().getFullYear(), license: HOTEL.license })}</p>
+          <p>{t("footer.crafted")}</p>
         </div>
       </div>
     </footer>
