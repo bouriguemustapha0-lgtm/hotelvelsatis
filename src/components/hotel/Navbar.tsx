@@ -69,9 +69,7 @@ export function Navbar() {
         </ul>
 
         <a
-          href={HOTEL.booking}
-          target="_blank"
-          rel="noreferrer"
+          href="#book"
           className={`hidden lg:inline-flex items-center gap-2 border px-5 py-2.5 text-[0.7rem] tracking-luxe uppercase transition-all ${
             scrolled
               ? "border-foreground/20 text-foreground hover:bg-foreground hover:text-cream"
