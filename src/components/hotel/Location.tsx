@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { MapPin, Phone, Mail, Instagram, Facebook, Navigation } from "lucide-react";
+import { MapPin, Phone, Mail, Instagram, Facebook, Navigation, Star } from "lucide-react";
 import { HOTEL } from "@/lib/hotel-data";
 
 const NEARBY = [
@@ -10,8 +10,8 @@ const NEARBY = [
 ];
 
 export function Location() {
-  // Approximate coordinates for Beni Mellal centre
-  const mapSrc = "https://www.google.com/maps?q=Hotel+VELSATIS+Beni+Mellal&output=embed";
+  // Exact coordinates for Hotel Velsatis, Beni Mellal
+  const mapSrc = `https://maps.google.com/maps?q=${HOTEL.coords.lat},${HOTEL.coords.lng}&hl=en&z=17&output=embed`;
   return (
     <section id="contact" className="relative bg-ink text-cream py-24 md:py-36">
       <div className="mx-auto max-w-7xl px-6">
@@ -30,9 +30,19 @@ export function Location() {
               On Boulevard Mohamed V, at the <em className="italic text-gold">edge of the Atlas.</em>
             </h2>
 
+            <div className="mt-8 flex items-center gap-1.5">
+              {Array.from({ length: HOTEL.stars }).map((_, i) => (
+                <Star key={i} size={14} className="fill-gold text-gold" />
+              ))}
+              <span className="ml-2 text-[0.65rem] tracking-luxe uppercase text-cream/50">
+                {HOTEL.stars}-Star Hotel
+              </span>
+            </div>
+
             <div className="mt-10 space-y-6">
               <Row icon={<MapPin size={18} />} label="Address" value={HOTEL.address} />
-              <Row icon={<Phone size={18} />} label="Phone" value={HOTEL.phone} href={`tel:${HOTEL.phone.replace(/\s/g, "")}`} />
+              <Row icon={<Phone size={18} />} label="Hotel" value={HOTEL.phoneLocal} href={`tel:${HOTEL.phone.replace(/\s/g, "")}`} />
+              <Row icon={<Phone size={18} />} label="Restaurant" value={HOTEL.restaurantPhoneLocal} href={`tel:${HOTEL.restaurantPhone.replace(/\s/g, "")}`} />
               <Row icon={<Mail size={18} />} label="Email" value={HOTEL.email} href={`mailto:${HOTEL.email}`} />
             </div>
 
@@ -44,10 +54,10 @@ export function Location() {
                 <Phone size={14} /> Call the Hotel
               </a>
               <a
-                href={`mailto:${HOTEL.email}`}
+                href={`tel:${HOTEL.restaurantPhone.replace(/\s/g, "")}`}
                 className="inline-flex items-center gap-2 border border-cream/30 text-cream px-6 py-3.5 text-[0.7rem] tracking-luxe uppercase hover:bg-cream hover:text-ink transition-colors"
               >
-                <Mail size={14} /> Email Concierge
+                <Phone size={14} /> Call Restaurant
               </a>
             </div>
 
@@ -84,14 +94,22 @@ export function Location() {
             transition={{ duration: 0.9, delay: 0.1 }}
             className="md:col-span-7"
           >
-            <div className="relative aspect-[4/5] md:aspect-[5/6] overflow-hidden border border-cream/15">
+            <div className="relative aspect-[4/5] md:aspect-[5/6] overflow-hidden border border-cream/15 group">
               <iframe
                 title="Map of Hotel Velsatis, Beni Mellal"
                 src={mapSrc}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="h-full w-full grayscale contrast-110"
+                className="h-full w-full"
               />
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${HOTEL.coords.lat},${HOTEL.coords.lng}`}
+                target="_blank"
+                rel="noreferrer"
+                className="absolute bottom-4 right-4 inline-flex items-center gap-2 bg-ink/90 backdrop-blur-sm border border-cream/20 text-cream px-4 py-2 text-[0.65rem] tracking-luxe uppercase hover:bg-gold hover:text-ink hover:border-gold transition-colors"
+              >
+                <Navigation size={12} /> Open in Maps
+              </a>
             </div>
             <div className="mt-4 grid grid-cols-3 gap-px bg-cream/15">
               <Mini label="Check-in" value={HOTEL.checkIn} />
