@@ -45,6 +45,7 @@ function Index() {
       <Amenities />
       <Gallery />
       <Reviews />
+      <BookingPlatforms />
       <Location />
       <Footer />
     </main>
