@@ -21,7 +21,7 @@ export function Hero() {
       </motion.div>
 
       <div className="relative z-10 flex h-full flex-col">
-        <div className="flex-1 mx-auto flex w-full max-w-7xl flex-col justify-end px-6 pb-16 md:pb-20 lg:pb-24">
+        <div className="flex-1 mx-auto flex w-full max-w-7xl flex-col justify-end px-6 pt-28 md:pt-32 pb-16 md:pb-20 lg:pb-24">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
