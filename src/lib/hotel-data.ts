@@ -1,3 +1,12 @@
+import lounge from "@/assets/velsatis1.jpg.asset.json";
+import food from "@/assets/velsatis-2.jpg.asset.json";
+import twinBed from "@/assets/velsatis-3.jpg.asset.json";
+import atrium from "@/assets/velsatis-4.jpg.asset.json";
+import restaurantHall from "@/assets/velsatis-5.jpg.asset.json";
+import dessert from "@/assets/velsatis-6.jpg.asset.json";
+import pizza from "@/assets/velsatis-7.jpg.asset.json";
+import singleBed from "@/assets/velsatis-8.jpg.asset.json";
+
 export const HOTEL = {
   name: "Velsatis",
   tagline: "Hôtel · Café · Restaurant",
