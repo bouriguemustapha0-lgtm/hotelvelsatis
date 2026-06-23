@@ -18,7 +18,7 @@ const ICONS: Record<string, React.ComponentType<{ size?: number; className?: str
 
 export function Amenities() {
   return (
-    <section id="amenities" className="relative bg-background py-24 md:py-36">
+    <section id="amenities" className="relative bg-background py-16 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-2xl">
           <p className="eyebrow flex items-center gap-3">

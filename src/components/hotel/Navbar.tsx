@@ -35,8 +35,8 @@ export function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:py-5">
-        <a href="#home" className="flex items-baseline gap-2 group">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 md:py-5">
+        <a href="#home" className="flex min-w-0 items-baseline gap-2 group">
           <span
             className={`font-display text-2xl md:text-[1.65rem] tracking-tight transition-colors ${
               scrolled ? "text-foreground" : "text-cream"
@@ -45,7 +45,7 @@ export function Navbar() {
             Velsatis
           </span>
           <span
-            className={`hidden md:inline text-[0.65rem] tracking-luxe uppercase transition-colors ${
+            className={`hidden lg:inline whitespace-nowrap text-[0.65rem] tracking-luxe uppercase transition-colors ${
               scrolled ? "text-muted-foreground" : "text-cream/70"
             }`}
           >
@@ -53,7 +53,7 @@ export function Navbar() {
           </span>
         </a>
 
-        <ul className="hidden md:flex items-center gap-9">
+        <ul className="hidden lg:flex items-center gap-7 xl:gap-9">
           {LINKS.map((l) => (
             <li key={l.href}>
               <a
@@ -72,7 +72,7 @@ export function Navbar() {
           href={HOTEL.booking}
           target="_blank"
           rel="noreferrer"
-          className={`hidden md:inline-flex items-center gap-2 border px-5 py-2.5 text-[0.7rem] tracking-luxe uppercase transition-all ${
+          className={`hidden lg:inline-flex items-center gap-2 border px-5 py-2.5 text-[0.7rem] tracking-luxe uppercase transition-all ${
             scrolled
               ? "border-foreground/20 text-foreground hover:bg-foreground hover:text-cream"
               : "border-cream/40 text-cream hover:bg-cream hover:text-ink"
@@ -83,7 +83,7 @@ export function Navbar() {
 
         <button
           onClick={() => setOpen((o) => !o)}
-          className={`md:hidden p-2 ${scrolled ? "text-foreground" : "text-cream"}`}
+          className={`lg:hidden p-2 ${scrolled ? "text-foreground" : "text-cream"}`}
           aria-label="Toggle menu"
         >
           {open ? <X size={22} /> : <Menu size={22} />}

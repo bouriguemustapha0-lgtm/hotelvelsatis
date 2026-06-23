@@ -10,7 +10,7 @@ const stats = [
 
 export function Overview() {
   return (
-    <section className="relative bg-background py-24 md:py-36">
+    <section className="relative bg-background py-16 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-16 md:grid-cols-12 md:gap-20">
           <motion.div

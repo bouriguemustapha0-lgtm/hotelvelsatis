@@ -25,14 +25,14 @@ const PLATFORMS = [
 
 export function BookingPlatforms() {
   return (
-    <section id="book" className="relative bg-ink py-24 md:py-36">
+    <section id="book" className="relative bg-ink py-16 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16 md:mb-20"
+          className="text-center mb-12 md:mb-20"
         >
           <p className="eyebrow flex items-center justify-center gap-3 text-cream/60">
             <span className="gold-rule" /> Reserve Your Stay <span className="gold-rule" />
@@ -53,13 +53,13 @@ export function BookingPlatforms() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="group relative bg-cream/5 border border-cream/10 p-10 md:p-12 text-center hover:bg-cream/10 hover:border-gold/40 transition-all duration-500"
+              className="group relative bg-cream/5 border border-cream/10 px-6 py-8 md:p-12 text-center hover:bg-cream/10 hover:border-gold/40 transition-all duration-500"
             >
               <div className="font-display text-2xl md:text-3xl text-cream mb-3">
                 {p.name}
               </div>
               <div
-                className="mx-auto mb-8 h-px w-12 transition-all duration-500 group-hover:w-20"
+                className="mx-auto mb-5 md:mb-8 h-px w-12 transition-all duration-500 group-hover:w-20"
                 style={{ backgroundColor: p.color }}
               />
               <span className="inline-flex items-center gap-2 text-sm tracking-[0.15em] uppercase text-cream/70 group-hover:text-gold transition-colors">

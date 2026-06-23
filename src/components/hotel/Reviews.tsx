@@ -4,9 +4,9 @@ import { HOTEL, REVIEWS } from "@/lib/hotel-data";
 
 export function Reviews() {
   return (
-    <section id="reviews" className="relative bg-background py-24 md:py-36">
+    <section id="reviews" className="relative bg-background py-16 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-end mb-16 md:mb-20">
+        <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-end mb-12 md:mb-20">
           <div className="md:col-span-7">
             <p className="eyebrow flex items-center gap-3">
               <span className="gold-rule" /> Guest Voices

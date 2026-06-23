@@ -24,7 +24,7 @@ export function Gallery() {
   ];
 
   return (
-    <section id="gallery" className="relative bg-secondary py-24 md:py-36">
+    <section id="gallery" className="relative bg-secondary py-16 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12 md:mb-16">
           <div>

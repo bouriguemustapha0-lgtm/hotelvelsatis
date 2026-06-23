@@ -9,9 +9,9 @@ export function Rooms() {
   const [active, setActive] = useState<Room | null>(null);
 
   return (
-    <section id="rooms" className="relative bg-secondary py-24 md:py-36">
+    <section id="rooms" className="relative bg-secondary py-16 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 md:mb-24">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-20">
           <div>
             <p className="eyebrow flex items-center gap-3">
               <span className="gold-rule" /> Accommodation
@@ -49,11 +49,11 @@ export function Rooms() {
                 </div>
               </div>
 
-              <div className="p-7 md:p-9">
-                <div className="flex items-baseline justify-between gap-4">
-                  <h3 className="font-display text-2xl md:text-3xl">{room.name}</h3>
+              <div className="p-6 md:p-9">
+                <div className="flex items-baseline justify-between gap-3">
+                  <h3 className="min-w-0 font-display text-xl md:text-3xl">{room.name}</h3>
                   <div className="text-right shrink-0">
-                    <div className="font-display text-2xl text-gold">{room.price}<span className="text-base text-foreground/60"> MAD</span></div>
+                    <div className="font-display text-xl md:text-2xl text-gold">{room.price}<span className="text-sm md:text-base text-foreground/60"> MAD</span></div>
                     <p className="text-[0.6rem] tracking-luxe uppercase text-muted-foreground">per night · from</p>
                   </div>
                 </div>
