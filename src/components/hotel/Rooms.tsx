@@ -49,11 +49,11 @@ export function Rooms() {
                 </div>
               </div>
 
-              <div className="p-7 md:p-9">
-                <div className="flex items-baseline justify-between gap-4">
-                  <h3 className="font-display text-2xl md:text-3xl">{room.name}</h3>
+              <div className="p-6 md:p-9">
+                <div className="flex items-baseline justify-between gap-3">
+                  <h3 className="min-w-0 font-display text-xl md:text-3xl">{room.name}</h3>
                   <div className="text-right shrink-0">
-                    <div className="font-display text-2xl text-gold">{room.price}<span className="text-base text-foreground/60"> MAD</span></div>
+                    <div className="font-display text-xl md:text-2xl text-gold">{room.price}<span className="text-sm md:text-base text-foreground/60"> MAD</span></div>
                     <p className="text-[0.6rem] tracking-luxe uppercase text-muted-foreground">per night · from</p>
                   </div>
                 </div>
