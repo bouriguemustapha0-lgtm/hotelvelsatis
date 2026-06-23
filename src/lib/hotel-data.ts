@@ -186,6 +186,13 @@ export const GALLERY: { src: string; alt: string; category: string }[] = [
   { src: crepes.url, alt: "Chocolate-drizzled crêpes with hot chocolate", category: "Dining" },
   { src: atrium.url, alt: "Atrium with mezzanine and staircase", category: "Interior" },
   { src: IMAGES.exteriorStreet, alt: "Velsatis building on the boulevard", category: "Exterior" },
+  { src: twinBalcony.url, alt: "Twin room with balcony and earth-toned linens", category: "Rooms" },
+  { src: tripleRoom.url, alt: "Triple family suite with terracotta walls", category: "Rooms" },
+  { src: chickenPlate.url, alt: "Chicken in cream sauce with fries and vegetables", category: "Dining" },
+  { src: pastaCream.url, alt: "Orecchiette with chicken and mushroom cream sauce", category: "Dining" },
+  { src: gratin.url, alt: "Golden baked pasta gratin", category: "Dining" },
+  { src: paniniMenu.url, alt: "Velsatis panini with the house menu", category: "Dining" },
+  { src: wrapCoke.url, alt: "Beef wrap with fries and Coca-Cola", category: "Dining" },
 ];
 
 
