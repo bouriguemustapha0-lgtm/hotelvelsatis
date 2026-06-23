@@ -59,7 +59,7 @@ export function BookingPlatforms() {
                 {p.name}
               </div>
               <div
-                className="mx-auto mb-8 h-px w-12 transition-all duration-500 group-hover:w-20"
+                className="mx-auto mb-5 md:mb-8 h-px w-12 transition-all duration-500 group-hover:w-20"
                 style={{ backgroundColor: p.color }}
               />
               <span className="inline-flex items-center gap-2 text-sm tracking-[0.15em] uppercase text-cream/70 group-hover:text-gold transition-colors">
