@@ -1,18 +1,21 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
+import { useT } from "@/lib/i18n";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 const LINKS = [
-  { href: "#home", label: "Home" },
-  { href: "#rooms", label: "Rooms" },
-  { href: "#amenities", label: "Amenities" },
-  { href: "#gallery", label: "Gallery" },
-  { href: "#reviews", label: "Reviews" },
-  { href: "#book", label: "Book" },
-  { href: "#contact", label: "Contact" },
+  { href: "#home", key: "nav.home" },
+  { href: "#rooms", key: "nav.rooms" },
+  { href: "#amenities", key: "nav.amenities" },
+  { href: "#gallery", key: "nav.gallery" },
+  { href: "#reviews", key: "nav.reviews" },
+  { href: "#book", key: "nav.book" },
+  { href: "#contact", key: "nav.contact" },
 ];
 
 export function Navbar() {
+  const t = useT();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -61,31 +64,37 @@ export function Navbar() {
                   scrolled ? "text-foreground/80 hover:text-foreground" : "text-cream/80 hover:text-cream"
                 }`}
               >
-                {l.label}
+                {t(l.key)}
               </a>
             </li>
           ))}
         </ul>
 
-        <a
-          href="#book"
-          className={`hidden lg:inline-flex items-center gap-2 border px-5 py-2.5 text-[0.7rem] tracking-luxe uppercase transition-all ${
-            scrolled
-              ? "border-foreground/20 text-foreground hover:bg-foreground hover:text-cream"
-              : "border-cream/40 text-cream hover:bg-cream hover:text-ink"
-          }`}
-        >
-          Reserve Your Stay
-        </a>
+        <div className="hidden lg:flex items-center gap-3">
+          <LanguageSwitcher scrolled={scrolled} />
+          <a
+            href="#book"
+            className={`inline-flex items-center gap-2 border px-5 py-2.5 text-[0.7rem] tracking-luxe uppercase transition-all ${
+              scrolled
+                ? "border-foreground/20 text-foreground hover:bg-foreground hover:text-cream"
+                : "border-cream/40 text-cream hover:bg-cream hover:text-ink"
+            }`}
+          >
+            {t("nav.reserve")}
+          </a>
+        </div>
 
-        <button
-          onClick={() => setOpen((o) => !o)}
-          className={`lg:hidden p-2 -mr-2 rounded-sm transition-colors active:bg-foreground/10 ${scrolled ? "text-foreground" : "text-cream"}`}
-          aria-label="Toggle menu"
-          aria-expanded={open}
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        <div className="flex items-center gap-1 lg:hidden">
+          <LanguageSwitcher scrolled={scrolled} />
+          <button
+            onClick={() => setOpen((o) => !o)}
+            className={`p-2 -mr-2 rounded-sm transition-colors active:bg-foreground/10 ${scrolled ? "text-foreground" : "text-cream"}`}
+            aria-label="Toggle menu"
+            aria-expanded={open}
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </nav>
 
       <AnimatePresence>
@@ -98,14 +107,14 @@ export function Navbar() {
             className="lg:hidden overflow-hidden bg-background border-t hairline shadow-lg"
           >
             <ul className="px-6 py-6 space-y-1">
-              {LINKS.map((l, i) => (
+              {LINKS.map((l) => (
                 <li key={l.href}>
                   <a
                     onClick={() => setOpen(false)}
                     href={l.href}
                     className="block py-3 text-sm tracking-[0.2em] uppercase text-foreground/80 border-b border-foreground/5 transition-colors active:text-gold active:bg-foreground/[0.03]"
                   >
-                    {l.label}
+                    {t(l.key)}
                   </a>
                 </li>
               ))}
@@ -115,7 +124,7 @@ export function Navbar() {
                   onClick={() => setOpen(false)}
                   className="block text-center border border-foreground/30 px-5 py-3.5 text-xs tracking-luxe uppercase transition-colors active:bg-foreground active:text-cream"
                 >
-                  Reserve Your Stay
+                  {t("nav.reserve")}
                 </a>
               </li>
             </ul>
