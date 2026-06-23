@@ -7,6 +7,7 @@ const PLATFORMS = [
   { name: "TripAdvisor", url: HOTEL.tripadvisor, color: "#00af87" },
   { name: "Booking.com", url: HOTEL.booking, color: "#003580" },
   { name: "Reserving.com", url: HOTEL.reserving, color: "#c7512c" },
+  { name: "Expedia", url: HOTEL.expedia, color: "#ffc107" },
 ];
 
 export function BookingPlatforms() {
@@ -29,7 +30,7 @@ export function BookingPlatforms() {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {PLATFORMS.map((p, i) => (
             <motion.a
               key={p.name}

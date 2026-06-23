@@ -47,6 +47,8 @@ export const HOTEL = {
   tripadvisor: "https://www.tripadvisor.fr/Hotel_Review-g734464-d17324091-Reviews-Hotel_Velsatis-Beni_Mellal_Beni_Mellal_Khenifra.html",
   reserving:
     "https://fr.reserving.com/hotels/afrique/maroc/tadla-azilal/beni-mellal/beni-mellal/hotel-velsatis",
+  expedia:
+    "https://www.expedia.com/Beni-Mellal-Hotels-VELSATIS.h110888187.Hotel-Information",
   rating: 7.4,
   ratingLabel: "Good",
   reviewsCount: 471,
