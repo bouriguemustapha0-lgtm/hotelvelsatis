@@ -49,9 +49,9 @@ export function BookingPlatforms() {
                 className="mx-auto mb-5 md:mb-8 h-px w-12 transition-all duration-500 group-hover:w-20"
                 style={{ backgroundColor: p.color }}
               />
-              <span className="inline-flex items-center gap-2 text-sm tracking-[0.15em] uppercase text-cream/70 group-hover:text-gold transition-colors">
+              <span className="block text-xs md:text-sm tracking-[0.12em] md:tracking-[0.15em] uppercase text-cream/70 group-hover:text-gold transition-colors break-words">
                 {t(`booking.labels.${p.name}`)}
-                <ExternalLink size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ExternalLink size={14} className="inline-block ml-1.5 align-middle transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </span>
             </motion.a>
           ))}
