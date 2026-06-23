@@ -14,6 +14,13 @@ import exteriorNight from "@/assets/velsatis-14.jpg.asset.json";
 import redLounge from "@/assets/velsatis-15.jpg.asset.json";
 import crepes from "@/assets/velsatis-16.jpg.asset.json";
 import doubleRoom from "@/assets/velsatis-17.jpg.asset.json";
+import twinBalcony from "@/assets/velsatis-19.jpg.asset.json";
+import tripleRoom from "@/assets/velsatis-20.jpg.asset.json";
+import wrapCoke from "@/assets/velsatis-24.jpg.asset.json";
+import pastaCream from "@/assets/velsatis-25.jpg.asset.json";
+import chickenPlate from "@/assets/velsatis-26.jpg.asset.json";
+import gratin from "@/assets/velsatis-27.jpg.asset.json";
+import paniniMenu from "@/assets/velsatis-28.jpg.asset.json";
 
 export const HOTEL = {
   name: "Velsatis",
@@ -75,14 +82,14 @@ export const ROOMS = [
   },
   {
     id: "twin",
-    name: "Twin Room · Mountain View",
+    name: "Twin Room · Balcony",
     bed: "2 twin beds",
     capacity: 2,
     price: 620,
-    image: twinBed.url,
+    image: twinBalcony.url,
     description:
-      "Twin beds dressed in patterned Moroccan linens open onto a balcony framing the Middle Atlas. The light here changes hourly.",
-    amenities: ["Mountain view", "Balcony", "Air-conditioning", "Private bathroom", "Free Wifi"],
+      "Twin beds dressed in warm earth-toned Moroccan linens, opening through tall glass doors onto a private balcony with iron railings and potted greenery.",
+    amenities: ["Private balcony", "Air-conditioning", "Twin beds", "Free Wifi", "Tea table"],
   },
   {
     id: "double",
@@ -97,14 +104,14 @@ export const ROOMS = [
   },
   {
     id: "triple",
-    name: "Triple Room · City View",
+    name: "Triple Room · Family Suite",
     bed: "3 twin beds",
     capacity: 3,
     price: 880,
-    image: IMAGES.dining,
+    image: tripleRoom.url,
     description:
-      "Generous space for families or friends, overlooking the textures of Beni Mellal — minarets, palms and the slow choreography of the souk.",
-    amenities: ["City view", "Three beds", "Air-conditioning", "Free Wifi", "Wardrobe"],
+      "A vivid family suite in deep terracotta, three twin beds dressed in monochrome arabesque linens. Generous space for families or friends exploring the Middle Atlas.",
+    amenities: ["Three twin beds", "City view", "Air-conditioning", "Free Wifi", "Wardrobe"],
   },
 ];
 
@@ -179,6 +186,13 @@ export const GALLERY: { src: string; alt: string; category: string }[] = [
   { src: crepes.url, alt: "Chocolate-drizzled crêpes with hot chocolate", category: "Dining" },
   { src: atrium.url, alt: "Atrium with mezzanine and staircase", category: "Interior" },
   { src: IMAGES.exteriorStreet, alt: "Velsatis building on the boulevard", category: "Exterior" },
+  { src: twinBalcony.url, alt: "Twin room with balcony and earth-toned linens", category: "Rooms" },
+  { src: tripleRoom.url, alt: "Triple family suite with terracotta walls", category: "Rooms" },
+  { src: chickenPlate.url, alt: "Chicken in cream sauce with fries and vegetables", category: "Dining" },
+  { src: pastaCream.url, alt: "Orecchiette with chicken and mushroom cream sauce", category: "Dining" },
+  { src: gratin.url, alt: "Golden baked pasta gratin", category: "Dining" },
+  { src: paniniMenu.url, alt: "Velsatis panini with the house menu", category: "Dining" },
+  { src: wrapCoke.url, alt: "Beef wrap with fries and Coca-Cola", category: "Dining" },
 ];
 
 
