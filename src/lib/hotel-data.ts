@@ -33,7 +33,7 @@ export const HOTEL = {
   stars: 3,
   city: "Beni Mellal",
   country: "Morocco",
-  address: "55 Boulevard Mohamed V, 23000 Beni Mellal, Morocco",
+  address: "55 Boulevard Mohamed V, Beni-Mellal 23000",
   coords: { lat: 32.328755, lng: -6.372505 },
   phone: "+212 523-420604",
   phoneLocal: "0523 42 06 04",
