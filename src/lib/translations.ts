@@ -85,7 +85,7 @@ export const TRANSLATIONS: Record<Locale, Dict> = {
     booking: {
       eyebrow: "Reserve Your Stay",
       title1: "Book directly on your", titleEm: "preferred platform.",
-      labels: { TripAdvisor: "Read Reviews", "Booking.com": "Book Now", "Reserving.com": "Reserve" },
+      labels: { TripAdvisor: "Read Reviews", "Booking.com": "Book Now", "Reserving.com": "Reserve", "Expedia": "Book Now" },
     },
     location: {
       eyebrow: "Find Us",
@@ -285,7 +285,7 @@ export const TRANSLATIONS: Record<Locale, Dict> = {
     booking: {
       eyebrow: "احجز إقامتك",
       title1: "احجز مباشرة عبر", titleEm: "منصتك المفضلة.",
-      labels: { TripAdvisor: "اقرأ التقييمات", "Booking.com": "احجز الآن", "Reserving.com": "احجز" },
+      labels: { TripAdvisor: "اقرأ التقييمات", "Booking.com": "احجز الآن", "Reserving.com": "احجز", "Expedia": "احجز الآن" },
     },
     location: {
       eyebrow: "موقعنا",
@@ -385,7 +385,7 @@ export const TRANSLATIONS: Record<Locale, Dict> = {
     booking: {
       eyebrow: "Reserve Su Estancia",
       title1: "Reserve directamente en su", titleEm: "plataforma preferida.",
-      labels: { TripAdvisor: "Leer Opiniones", "Booking.com": "Reservar", "Reserving.com": "Reservar" },
+      labels: { TripAdvisor: "Leer Opiniones", "Booking.com": "Reservar", "Reserving.com": "Reservar", "Expedia": "Reservar" },
     },
     location: {
       eyebrow: "Encuéntrenos",
@@ -485,7 +485,7 @@ export const TRANSLATIONS: Record<Locale, Dict> = {
     booking: {
       eyebrow: "Aufenthalt Reservieren",
       title1: "Buchen Sie direkt auf Ihrer", titleEm: "bevorzugten Plattform.",
-      labels: { TripAdvisor: "Bewertungen Lesen", "Booking.com": "Jetzt Buchen", "Reserving.com": "Reservieren" },
+      labels: { TripAdvisor: "Bewertungen Lesen", "Booking.com": "Jetzt Buchen", "Reserving.com": "Reservieren", "Expedia": "Jetzt Buchen" },
     },
     location: {
       eyebrow: "Finden Sie Uns",
