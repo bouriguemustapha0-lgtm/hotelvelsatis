@@ -21,7 +21,7 @@ export function Hero() {
       </motion.div>
 
       <div className="relative z-10 flex h-full flex-col">
-        <div className="flex-1 mx-auto flex w-full max-w-7xl flex-col justify-end px-6 pb-16 md:pb-24">
+        <div className="flex-1 mx-auto flex w-full max-w-7xl flex-col justify-end px-6 pb-16 md:pb-20 lg:pb-24">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -36,7 +36,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
-            className="mt-6 max-w-4xl font-display text-cream text-[3.2rem] leading-[1.02] tracking-tight md:text-[6.5rem]"
+            className="mt-6 max-w-4xl font-display text-cream text-[3.2rem] leading-[1.02] tracking-tight md:text-[5rem] lg:text-[6.5rem]"
           >
             Where the Atlas
             <br />
@@ -78,7 +78,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 1.25 }}
-            className="mt-14 grid grid-cols-3 gap-6 md:gap-12 max-w-2xl border-t border-cream/20 pt-8"
+            className="mt-12 md:mt-14 grid grid-cols-3 gap-5 md:gap-8 lg:gap-12 max-w-2xl border-t border-cream/20 pt-8"
           >
             <Stat icon={<Star size={14} />} value={HOTEL.rating.toFixed(1)} label={`${HOTEL.reviewsCount} reviews`} />
             <Stat icon={<Users size={14} />} value="5000+" label="Guests welcomed" />

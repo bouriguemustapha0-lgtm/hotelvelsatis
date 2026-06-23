@@ -13,20 +13,20 @@ export function Location() {
   // Exact coordinates for Hotel Velsatis, Beni Mellal
   const mapSrc = `https://maps.google.com/maps?q=${HOTEL.coords.lat},${HOTEL.coords.lng}&hl=en&z=17&output=embed`;
   return (
-    <section id="contact" className="relative bg-ink text-cream py-16 md:py-32">
+    <section id="contact" className="relative bg-ink text-cream py-16 md:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid md:grid-cols-12 gap-10 md:gap-16">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="md:col-span-5"
+            className="min-w-0 lg:col-span-5"
           >
             <p className="eyebrow text-cream/60 flex items-center gap-3">
               <span className="gold-rule" /> Find Us
             </p>
-            <h2 className="mt-6 font-display text-4xl md:text-6xl leading-[1.05]">
+            <h2 className="mt-6 font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05]">
               On Boulevard Mohamed V, at the <em className="italic text-gold">edge of the Atlas.</em>
             </h2>
 
@@ -92,9 +92,9 @@ export function Location() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, delay: 0.1 }}
-            className="md:col-span-7"
+            className="min-w-0 lg:col-span-7"
           >
-            <div className="relative aspect-[4/5] md:aspect-[5/6] overflow-hidden border border-cream/15 group">
+            <div className="relative aspect-[4/5] md:aspect-[16/10] lg:aspect-[5/6] overflow-hidden border border-cream/15 group">
               <iframe
                 title="Map of Hotel Velsatis, Beni Mellal"
                 src={mapSrc}
