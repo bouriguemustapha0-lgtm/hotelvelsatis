@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { useT } from "@/lib/i18n";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import logoAsset from "@/assets/velsatis-logo.png.asset.json";
 
 const LINKS = [
   { href: "#home", key: "nav.home" },
