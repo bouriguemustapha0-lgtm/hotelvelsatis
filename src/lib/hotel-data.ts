@@ -71,7 +71,7 @@ export const ROOMS = [
     bed: "2 twin beds",
     capacity: 2,
     price: 620,
-    image: IMAGES.twinMountain,
+    image: twinBed.url,
     description:
       "Twin beds dressed in patterned Moroccan linens open onto a balcony framing the Middle Atlas. The light here changes hourly.",
     amenities: ["Mountain view", "Balcony", "Air-conditioning", "Private bathroom", "Free Wifi"],
