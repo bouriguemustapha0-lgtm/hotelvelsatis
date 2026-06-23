@@ -158,13 +158,17 @@ export const REVIEWS = [
 
 export const GALLERY: { src: string; alt: string; category: string }[] = [
   { src: IMAGES.heroNight, alt: "Hotel facade illuminated at night", category: "Exterior" },
-  { src: IMAGES.twinRoom, alt: "Twin room with balcony", category: "Rooms" },
-  { src: IMAGES.cafe, alt: "Café interior", category: "Dining" },
-  { src: IMAGES.lobby, alt: "Lounge with crimson chairs", category: "Interior" },
+  { src: twinBed.url, alt: "Twin room dressed in Moroccan linens", category: "Rooms" },
+  { src: pizza.url, alt: "Wood-fired pizza with the Velsatis menu", category: "Dining" },
+  { src: lounge.url, alt: "Lounge and lobby with crimson seating", category: "Interior" },
   { src: IMAGES.exteriorStreet, alt: "Velsatis building on the boulevard", category: "Exterior" },
-  { src: IMAGES.twinMountain, alt: "Twin room with mountain view", category: "Rooms" },
-  { src: IMAGES.dining, alt: "Restaurant dining area", category: "Dining" },
+  { src: singleBed.url, alt: "Single room with patterned throw", category: "Rooms" },
+  { src: restaurantHall.url, alt: "Restaurant set for service", category: "Dining" },
+  { src: atrium.url, alt: "Atrium with mezzanine and staircase", category: "Interior" },
+  { src: food.url, alt: "Plated main course with seasonal vegetables", category: "Dining" },
+  { src: dessert.url, alt: "Signature ice cream coupe", category: "Dining" },
   { src: IMAGES.exteriorDay, alt: "Hotel facade by day", category: "Exterior" },
 ];
+
 
 export const CATEGORIES = ["All", "Rooms", "Interior", "Exterior", "Dining"] as const;
