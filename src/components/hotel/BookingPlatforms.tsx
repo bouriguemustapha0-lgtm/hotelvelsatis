@@ -25,14 +25,14 @@ const PLATFORMS = [
 
 export function BookingPlatforms() {
   return (
-    <section id="book" className="relative bg-ink py-24 md:py-36">
+    <section id="book" className="relative bg-ink py-16 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16 md:mb-20"
+          className="text-center mb-12 md:mb-20"
         >
           <p className="eyebrow flex items-center justify-center gap-3 text-cream/60">
             <span className="gold-rule" /> Reserve Your Stay <span className="gold-rule" />

@@ -9,9 +9,9 @@ export function Rooms() {
   const [active, setActive] = useState<Room | null>(null);
 
   return (
-    <section id="rooms" className="relative bg-secondary py-24 md:py-36">
+    <section id="rooms" className="relative bg-secondary py-16 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 md:mb-24">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-20">
           <div>
             <p className="eyebrow flex items-center gap-3">
               <span className="gold-rule" /> Accommodation

@@ -13,7 +13,7 @@ export function Location() {
   // Exact coordinates for Hotel Velsatis, Beni Mellal
   const mapSrc = `https://maps.google.com/maps?q=${HOTEL.coords.lat},${HOTEL.coords.lng}&hl=en&z=17&output=embed`;
   return (
-    <section id="contact" className="relative bg-ink text-cream py-24 md:py-36">
+    <section id="contact" className="relative bg-ink text-cream py-16 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid md:grid-cols-12 gap-10 md:gap-16">
           <motion.div
