@@ -39,7 +39,7 @@ export const HOTEL = {
   facebook: "https://www.facebook.com/",
   booking:
     "https://www.booking.com/hotel/ma/velsatis-beni-mellal.html",
-  tripadvisor: "https://www.tripadvisor.com/",
+  tripadvisor: "https://www.tripadvisor.fr/Hotel_Review-g734464-d17324091-Reviews-Hotel_Velsatis-Beni_Mellal_Beni_Mellal_Khenifra.html",
   reserving:
     "https://fr.reserving.com/hotels/afrique/maroc/tadla-azilal/beni-mellal/beni-mellal/hotel-velsatis",
   rating: 7.4,

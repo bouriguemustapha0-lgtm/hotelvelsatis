@@ -1,0 +1,75 @@
+import { motion } from "motion/react";
+import { ExternalLink } from "lucide-react";
+import { HOTEL } from "@/lib/hotel-data";
+
+const PLATFORMS = [
+  {
+    name: "TripAdvisor",
+    url: HOTEL.tripadvisor,
+    label: "Read Reviews",
+    color: "#00af87",
+  },
+  {
+    name: "Booking.com",
+    url: HOTEL.booking,
+    label: "Book Now",
+    color: "#003580",
+  },
+  {
+    name: "Reserving.com",
+    url: HOTEL.reserving,
+    label: "Reserve",
+    color: "#c7512c",
+  },
+];
+
+export function BookingPlatforms() {
+  return (
+    <section id="book" className="relative bg-ink py-24 md:py-36">
+      <div className="mx-auto max-w-7xl px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16 md:mb-20"
+        >
+          <p className="eyebrow flex items-center justify-center gap-3 text-cream/60">
+            <span className="gold-rule" /> Reserve Your Stay <span className="gold-rule" />
+          </p>
+          <h2 className="mt-6 font-display text-4xl md:text-6xl leading-[1.05] text-cream">
+            Book directly on your <em className="italic text-gold">preferred platform</em>.
+          </h2>
+        </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+          {PLATFORMS.map((p, i) => (
+            <motion.a
+              key={p.name}
+              href={p.url}
+              target="_blank"
+              rel="noreferrer"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="group relative bg-cream/5 border border-cream/10 p-10 md:p-12 text-center hover:bg-cream/10 hover:border-gold/40 transition-all duration-500"
+            >
+              <div className="font-display text-2xl md:text-3xl text-cream mb-3">
+                {p.name}
+              </div>
+              <div
+                className="mx-auto mb-8 h-px w-12 transition-all duration-500 group-hover:w-20"
+                style={{ backgroundColor: p.color }}
+              />
+              <span className="inline-flex items-center gap-2 text-sm tracking-[0.15em] uppercase text-cream/70 group-hover:text-gold transition-colors">
+                {p.label}
+                <ExternalLink size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </span>
+            </motion.a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
