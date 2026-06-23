@@ -75,7 +75,7 @@ export function Navbar() {
               : "border-cream/40 text-cream hover:bg-cream hover:text-ink"
           }`}
         >
-          Reserve
+          Reserve Your Stay
         </a>
 
         <button
@@ -114,7 +114,7 @@ export function Navbar() {
                   onClick={() => setOpen(false)}
                   className="inline-block border border-foreground/30 px-5 py-2.5 text-xs tracking-luxe uppercase"
                 >
-                  Reserve
+                  Reserve Your Stay
                 </a>
               </li>
             </ul>
