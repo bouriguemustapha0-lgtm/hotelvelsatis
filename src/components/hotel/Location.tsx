@@ -74,7 +74,7 @@ export function Location() {
               <a href={HOTEL.instagram} target="_blank" rel="noreferrer" className="text-cream/70 hover:text-gold transition-colors" aria-label="Instagram"><Instagram size={18} /></a>
               <a href={HOTEL.facebook} target="_blank" rel="noreferrer" className="text-cream/70 hover:text-gold transition-colors" aria-label="Facebook"><Facebook size={18} /></a>
               <a
-                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(HOTEL.address)}`}
+                href={HOTEL.mapsUrl}
                 target="_blank" rel="noreferrer"
                 className="ml-auto inline-flex items-center gap-2 text-[0.65rem] tracking-luxe uppercase text-cream/70 hover:text-gold transition-colors"
               >
@@ -99,7 +99,7 @@ export function Location() {
                 className="h-full w-full"
               />
               <a
-                href={`https://www.google.com/maps/search/?api=1&query=${HOTEL.coords.lat},${HOTEL.coords.lng}`}
+                href={HOTEL.mapsUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="absolute bottom-4 right-4 inline-flex items-center gap-2 bg-ink/90 backdrop-blur-sm border border-cream/20 text-cream px-4 py-2 text-[0.65rem] tracking-luxe uppercase hover:bg-gold hover:text-ink hover:border-gold transition-colors"
