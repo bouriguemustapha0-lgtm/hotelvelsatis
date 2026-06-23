@@ -100,6 +100,8 @@ export function Hero() {
             <a href={HOTEL.reserving} target="_blank" rel="noreferrer" className="hover:text-gold transition-colors">Reserving.com</a>
             <span className="opacity-40">·</span>
             <a href={HOTEL.expedia} target="_blank" rel="noreferrer" className="hover:text-gold transition-colors">Expedia</a>
+            <span className="opacity-40">·</span>
+            <a href={HOTEL.trip} target="_blank" rel="noreferrer" className="hover:text-gold transition-colors">Trip.com</a>
           </motion.div>
         </div>
       </div>
