@@ -80,8 +80,9 @@ export function Navbar() {
 
         <button
           onClick={() => setOpen((o) => !o)}
-          className={`lg:hidden p-2 ${scrolled ? "text-foreground" : "text-cream"}`}
+          className={`lg:hidden p-2 -mr-2 rounded-sm transition-colors active:bg-foreground/10 ${scrolled ? "text-foreground" : "text-cream"}`}
           aria-label="Toggle menu"
+          aria-expanded={open}
         >
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
@@ -93,26 +94,26 @@ export function Navbar() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.35 }}
-            className="md:hidden overflow-hidden bg-background border-t hairline"
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:hidden overflow-hidden bg-background border-t hairline shadow-lg"
           >
-            <ul className="px-6 py-6 space-y-5">
-              {LINKS.map((l) => (
+            <ul className="px-6 py-6 space-y-1">
+              {LINKS.map((l, i) => (
                 <li key={l.href}>
                   <a
                     onClick={() => setOpen(false)}
                     href={l.href}
-                    className="block text-sm tracking-[0.2em] uppercase text-foreground/80"
+                    className="block py-3 text-sm tracking-[0.2em] uppercase text-foreground/80 border-b border-foreground/5 transition-colors active:text-gold active:bg-foreground/[0.03]"
                   >
                     {l.label}
                   </a>
                 </li>
               ))}
-              <li>
+              <li className="pt-4">
                 <a
                   href="#book"
                   onClick={() => setOpen(false)}
-                  className="inline-block border border-foreground/30 px-5 py-2.5 text-xs tracking-luxe uppercase"
+                  className="block text-center border border-foreground/30 px-5 py-3.5 text-xs tracking-luxe uppercase transition-colors active:bg-foreground active:text-cream"
                 >
                   Reserve Your Stay
                 </a>
@@ -121,6 +122,7 @@ export function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
+
     </motion.header>
   );
 }
