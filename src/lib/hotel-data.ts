@@ -21,6 +21,11 @@ import pastaCream from "@/assets/velsatis-25.jpg.asset.json";
 import chickenPlate from "@/assets/velsatis-26.jpg.asset.json";
 import gratin from "@/assets/velsatis-27.jpg.asset.json";
 import paniniMenu from "@/assets/velsatis-28.jpg.asset.json";
+import redLoungeWide from "@/assets/velsatis-29.jpg.asset.json";
+import pastaPizza from "@/assets/velsatis-30.jpg.asset.json";
+import iceCoupes from "@/assets/velsatis-31.jpg.asset.json";
+import facadeNeon from "@/assets/velsatis-32.jpg.asset.json";
+import streetNight from "@/assets/velsatis-street.webp.asset.json";
 
 export const HOTEL = {
   name: "Velsatis",
