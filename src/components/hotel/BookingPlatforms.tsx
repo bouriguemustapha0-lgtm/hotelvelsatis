@@ -53,7 +53,7 @@ export function BookingPlatforms() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="group relative bg-cream/5 border border-cream/10 p-10 md:p-12 text-center hover:bg-cream/10 hover:border-gold/40 transition-all duration-500"
+              className="group relative bg-cream/5 border border-cream/10 px-6 py-8 md:p-12 text-center hover:bg-cream/10 hover:border-gold/40 transition-all duration-500"
             >
               <div className="font-display text-2xl md:text-3xl text-cream mb-3">
                 {p.name}
