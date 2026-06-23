@@ -1,16 +1,12 @@
 import { motion } from "motion/react";
 import { MapPin, Phone, Mail, Instagram, Facebook, Navigation, Star } from "lucide-react";
 import { HOTEL } from "@/lib/hotel-data";
+import { useT } from "@/lib/i18n";
 
-const NEARBY = [
-  { name: "Beni Mellal Airport", distance: "5.6 mi · 15 min drive" },
-  { name: "Cascades d'Ouzoud", distance: "84 km · 1h 45min" },
-  { name: "Kasbah Bel Kush", distance: "1.2 km · in town" },
-  { name: "Ain Asserdoun Springs", distance: "8 km · 20 min" },
-];
+const NEARBY_IDS = ["airport", "ouzoud", "kasbah", "springs"] as const;
 
 export function Location() {
-  // Exact coordinates for Hotel Velsatis, Beni Mellal
+  const t = useT();
   const mapSrc = `https://maps.google.com/maps?q=${HOTEL.coords.lat},${HOTEL.coords.lng}&hl=en&z=17&output=embed`;
   return (
     <section id="contact" className="relative bg-ink text-cream py-16 md:py-24 lg:py-32">
@@ -24,10 +20,10 @@ export function Location() {
             className="min-w-0 lg:col-span-5"
           >
             <p className="eyebrow text-cream/60 flex items-center gap-3">
-              <span className="gold-rule" /> Find Us
+              <span className="gold-rule" /> {t("location.eyebrow")}
             </p>
             <h2 className="mt-6 font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05]">
-              On Boulevard Mohamed V, at the <em className="italic text-gold">edge of the Atlas.</em>
+              {t("location.title1")} <em className="italic text-gold">{t("location.titleEm")}</em>
             </h2>
 
             <div className="mt-8 flex items-center gap-1.5">
@@ -35,15 +31,15 @@ export function Location() {
                 <Star key={i} size={14} className="fill-gold text-gold" />
               ))}
               <span className="ml-2 text-[0.65rem] tracking-luxe uppercase text-cream/50">
-                {HOTEL.stars}-Star Hotel
+                {t("location.starHotel", { n: HOTEL.stars })}
               </span>
             </div>
 
             <div className="mt-10 space-y-6">
-              <Row icon={<MapPin size={18} />} label="Address" value={HOTEL.address} />
-              <Row icon={<Phone size={18} />} label="Hotel" value={HOTEL.phoneLocal} href={`tel:${HOTEL.phone.replace(/\s/g, "")}`} />
-              <Row icon={<Phone size={18} />} label="Restaurant" value={HOTEL.restaurantPhoneLocal} href={`tel:${HOTEL.restaurantPhone.replace(/\s/g, "")}`} />
-              <Row icon={<Mail size={18} />} label="Email" value={HOTEL.email} href={`mailto:${HOTEL.email}`} />
+              <Row icon={<MapPin size={18} />} label={t("location.address")} value={HOTEL.address} />
+              <Row icon={<Phone size={18} />} label={t("location.hotel")} value={HOTEL.phoneLocal} href={`tel:${HOTEL.phone.replace(/\s/g, "")}`} />
+              <Row icon={<Phone size={18} />} label={t("location.restaurant")} value={HOTEL.restaurantPhoneLocal} href={`tel:${HOTEL.restaurantPhone.replace(/\s/g, "")}`} />
+              <Row icon={<Mail size={18} />} label={t("location.email")} value={HOTEL.email} href={`mailto:${HOTEL.email}`} />
             </div>
 
             <div className="mt-10 flex flex-wrap gap-3">
@@ -51,30 +47,30 @@ export function Location() {
                 href={`tel:${HOTEL.phone.replace(/\s/g, "")}`}
                 className="inline-flex items-center gap-2 bg-gold text-ink px-6 py-3.5 text-[0.7rem] tracking-luxe uppercase hover:bg-cream transition-colors"
               >
-                <Phone size={14} /> Call the Hotel
+                <Phone size={14} /> {t("location.callHotel")}
               </a>
               <a
                 href={`tel:${HOTEL.restaurantPhone.replace(/\s/g, "")}`}
                 className="inline-flex items-center gap-2 border border-cream/30 text-cream px-6 py-3.5 text-[0.7rem] tracking-luxe uppercase hover:bg-cream hover:text-ink transition-colors"
               >
-                <Phone size={14} /> Call Restaurant
+                <Phone size={14} /> {t("location.callRestaurant")}
               </a>
             </div>
 
             <div className="mt-10 pt-8 border-t border-cream/15">
-              <p className="eyebrow text-cream/60 mb-5">Nearby</p>
+              <p className="eyebrow text-cream/60 mb-5">{t("location.nearby")}</p>
               <ul className="space-y-3">
-                {NEARBY.map((n) => (
-                  <li key={n.name} className="flex items-baseline justify-between gap-4 text-sm">
-                    <span className="text-cream/90">{n.name}</span>
-                    <span className="text-cream/50 text-[0.7rem] tracking-wider">{n.distance}</span>
+                {NEARBY_IDS.map((id) => (
+                  <li key={id} className="flex items-baseline justify-between gap-4 text-sm">
+                    <span className="text-cream/90">{t(`location.nearbyItems.${id}.name`)}</span>
+                    <span className="text-cream/50 text-[0.7rem] tracking-wider">{t(`location.nearbyItems.${id}.distance`)}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
             <div className="mt-10 pt-8 border-t border-cream/15 flex items-center gap-5">
-              <span className="text-[0.65rem] tracking-luxe uppercase text-cream/60">Follow</span>
+              <span className="text-[0.65rem] tracking-luxe uppercase text-cream/60">{t("location.follow")}</span>
               <a href={HOTEL.instagram} target="_blank" rel="noreferrer" className="text-cream/70 hover:text-gold transition-colors" aria-label="Instagram"><Instagram size={18} /></a>
               <a href={HOTEL.facebook} target="_blank" rel="noreferrer" className="text-cream/70 hover:text-gold transition-colors" aria-label="Facebook"><Facebook size={18} /></a>
               <a
@@ -82,7 +78,7 @@ export function Location() {
                 target="_blank" rel="noreferrer"
                 className="ml-auto inline-flex items-center gap-2 text-[0.65rem] tracking-luxe uppercase text-cream/70 hover:text-gold transition-colors"
               >
-                <Navigation size={14} /> Directions
+                <Navigation size={14} /> {t("location.directions")}
               </a>
             </div>
           </motion.div>
@@ -108,13 +104,13 @@ export function Location() {
                 rel="noreferrer"
                 className="absolute bottom-4 right-4 inline-flex items-center gap-2 bg-ink/90 backdrop-blur-sm border border-cream/20 text-cream px-4 py-2 text-[0.65rem] tracking-luxe uppercase hover:bg-gold hover:text-ink hover:border-gold transition-colors"
               >
-                <Navigation size={12} /> Open in Maps
+                <Navigation size={12} /> {t("location.openInMaps")}
               </a>
             </div>
             <div className="mt-4 grid grid-cols-3 gap-px bg-cream/15">
-              <Mini label="Check-in" value={HOTEL.checkIn} />
-              <Mini label="Check-out" value={HOTEL.checkOut} />
-              <Mini label="License" value={HOTEL.license} />
+              <Mini label={t("location.checkIn")} value={t("location.checkInValue")} />
+              <Mini label={t("location.checkOut")} value={t("location.checkOutValue")} />
+              <Mini label={t("location.license")} value={HOTEL.license} />
             </div>
           </motion.div>
         </div>
