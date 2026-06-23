@@ -6,6 +6,14 @@ import restaurantHall from "@/assets/velsatis-5.jpg.asset.json";
 import dessert from "@/assets/velsatis-6.jpg.asset.json";
 import pizza from "@/assets/velsatis-7.jpg.asset.json";
 import singleBed from "@/assets/velsatis-8.jpg.asset.json";
+import exteriorFacade from "@/assets/velsatis-10.jpg.asset.json";
+import paniniWrap from "@/assets/velsatis-11.jpg.asset.json";
+import dessertCups from "@/assets/velsatis-12.jpg.asset.json";
+import breakfast from "@/assets/velsatis-13.jpg.asset.json";
+import exteriorNight from "@/assets/velsatis-14.jpg.asset.json";
+import redLounge from "@/assets/velsatis-15.jpg.asset.json";
+import crepes from "@/assets/velsatis-16.jpg.asset.json";
+import doubleRoom from "@/assets/velsatis-17.jpg.asset.json";
 
 export const HOTEL = {
   name: "Velsatis",
