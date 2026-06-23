@@ -60,7 +60,7 @@ export const ROOMS = [
     bed: "1 twin bed",
     capacity: 1,
     price: 480,
-    image: IMAGES.twinRoom,
+    image: singleBed.url,
     description:
       "An intimate refuge designed for the solo traveller. Soft linens, private balcony and the quiet rhythm of Mohamed V boulevard at dusk.",
     amenities: ["Private balcony", "Air-conditioning", "Flat-screen TV", "Free Wifi", "Wardrobe"],
