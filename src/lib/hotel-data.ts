@@ -82,14 +82,14 @@ export const ROOMS = [
   },
   {
     id: "twin",
-    name: "Twin Room · Mountain View",
+    name: "Twin Room · Balcony",
     bed: "2 twin beds",
     capacity: 2,
     price: 620,
-    image: twinBed.url,
+    image: twinBalcony.url,
     description:
-      "Twin beds dressed in patterned Moroccan linens open onto a balcony framing the Middle Atlas. The light here changes hourly.",
-    amenities: ["Mountain view", "Balcony", "Air-conditioning", "Private bathroom", "Free Wifi"],
+      "Twin beds dressed in warm earth-toned Moroccan linens, opening through tall glass doors onto a private balcony with iron railings and potted greenery.",
+    amenities: ["Private balcony", "Air-conditioning", "Twin beds", "Free Wifi", "Tea table"],
   },
   {
     id: "double",
@@ -104,14 +104,14 @@ export const ROOMS = [
   },
   {
     id: "triple",
-    name: "Triple Room · City View",
+    name: "Triple Room · Family Suite",
     bed: "3 twin beds",
     capacity: 3,
     price: 880,
-    image: IMAGES.dining,
+    image: tripleRoom.url,
     description:
-      "Generous space for families or friends, overlooking the textures of Beni Mellal — minarets, palms and the slow choreography of the souk.",
-    amenities: ["City view", "Three beds", "Air-conditioning", "Free Wifi", "Wardrobe"],
+      "A vivid family suite in deep terracotta, three twin beds dressed in monochrome arabesque linens. Generous space for families or friends exploring the Middle Atlas.",
+    amenities: ["Three twin beds", "City view", "Air-conditioning", "Free Wifi", "Wardrobe"],
   },
 ];
 
