@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
-import { HOTEL } from "@/lib/hotel-data";
 
 const LINKS = [
   { href: "#home", label: "Home" },
