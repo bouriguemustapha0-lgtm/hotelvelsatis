@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
-import { HOTEL } from "@/lib/hotel-data";
 
 const LINKS = [
   { href: "#home", label: "Home" },
@@ -69,9 +68,7 @@ export function Navbar() {
         </ul>
 
         <a
-          href={HOTEL.booking}
-          target="_blank"
-          rel="noreferrer"
+          href="#book"
           className={`hidden lg:inline-flex items-center gap-2 border px-5 py-2.5 text-[0.7rem] tracking-luxe uppercase transition-all ${
             scrolled
               ? "border-foreground/20 text-foreground hover:bg-foreground hover:text-cream"
@@ -113,9 +110,8 @@ export function Navbar() {
               ))}
               <li>
                 <a
-                  href={HOTEL.booking}
-                  target="_blank"
-                  rel="noreferrer"
+                  href="#book"
+                  onClick={() => setOpen(false)}
                   className="inline-block border border-foreground/30 px-5 py-2.5 text-xs tracking-luxe uppercase"
                 >
                   Reserve
