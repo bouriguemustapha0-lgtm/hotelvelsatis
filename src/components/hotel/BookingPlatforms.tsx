@@ -1,29 +1,16 @@
 import { motion } from "motion/react";
 import { ExternalLink } from "lucide-react";
 import { HOTEL } from "@/lib/hotel-data";
+import { useT } from "@/lib/i18n";
 
 const PLATFORMS = [
-  {
-    name: "TripAdvisor",
-    url: HOTEL.tripadvisor,
-    label: "Read Reviews",
-    color: "#00af87",
-  },
-  {
-    name: "Booking.com",
-    url: HOTEL.booking,
-    label: "Book Now",
-    color: "#003580",
-  },
-  {
-    name: "Reserving.com",
-    url: HOTEL.reserving,
-    label: "Reserve",
-    color: "#c7512c",
-  },
+  { name: "TripAdvisor", url: HOTEL.tripadvisor, color: "#00af87" },
+  { name: "Booking.com", url: HOTEL.booking, color: "#003580" },
+  { name: "Reserving.com", url: HOTEL.reserving, color: "#c7512c" },
 ];
 
 export function BookingPlatforms() {
+  const t = useT();
   return (
     <section id="book" className="relative bg-ink py-16 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
@@ -35,10 +22,10 @@ export function BookingPlatforms() {
           className="text-center mb-12 md:mb-20"
         >
           <p className="eyebrow flex items-center justify-center gap-3 text-cream/60">
-            <span className="gold-rule" /> Reserve Your Stay <span className="gold-rule" />
+            <span className="gold-rule" /> {t("booking.eyebrow")} <span className="gold-rule" />
           </p>
           <h2 className="mt-6 font-display text-4xl md:text-6xl leading-[1.05] text-cream">
-            Book directly on your <em className="italic text-gold">preferred platform</em>.
+            {t("booking.title1")} <em className="italic text-gold">{t("booking.titleEm")}</em>
           </h2>
         </motion.div>
 
@@ -63,7 +50,7 @@ export function BookingPlatforms() {
                 style={{ backgroundColor: p.color }}
               />
               <span className="inline-flex items-center gap-2 text-sm tracking-[0.15em] uppercase text-cream/70 group-hover:text-gold transition-colors">
-                {p.label}
+                {t(`booking.labels.${p.name}`)}
                 <ExternalLink size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </span>
             </motion.a>
