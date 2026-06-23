@@ -1,0 +1,128 @@
+import { motion } from "motion/react";
+import { MapPin, Phone, Mail, Instagram, Facebook, Navigation } from "lucide-react";
+import { HOTEL } from "@/lib/hotel-data";
+
+const NEARBY = [
+  { name: "Beni Mellal Airport", distance: "5.6 mi · 15 min drive" },
+  { name: "Cascades d'Ouzoud", distance: "84 km · 1h 45min" },
+  { name: "Kasbah Bel Kush", distance: "1.2 km · in town" },
+  { name: "Ain Asserdoun Springs", distance: "8 km · 20 min" },
+];
+
+export function Location() {
+  // Approximate coordinates for Beni Mellal centre
+  const mapSrc = "https://www.google.com/maps?q=Hotel+VELSATIS+Beni+Mellal&output=embed";
+  return (
+    <section id="contact" className="relative bg-ink text-cream py-24 md:py-36">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid md:grid-cols-12 gap-10 md:gap-16">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="md:col-span-5"
+          >
+            <p className="eyebrow text-cream/60 flex items-center gap-3">
+              <span className="gold-rule" /> Find Us
+            </p>
+            <h2 className="mt-6 font-display text-4xl md:text-6xl leading-[1.05]">
+              On Boulevard Mohamed V, at the <em className="italic text-gold">edge of the Atlas.</em>
+            </h2>
+
+            <div className="mt-10 space-y-6">
+              <Row icon={<MapPin size={18} />} label="Address" value={HOTEL.address} />
+              <Row icon={<Phone size={18} />} label="Phone" value={HOTEL.phone} href={`tel:${HOTEL.phone.replace(/\s/g, "")}`} />
+              <Row icon={<Mail size={18} />} label="Email" value={HOTEL.email} href={`mailto:${HOTEL.email}`} />
+            </div>
+
+            <div className="mt-10 flex flex-wrap gap-3">
+              <a
+                href={`tel:${HOTEL.phone.replace(/\s/g, "")}`}
+                className="inline-flex items-center gap-2 bg-gold text-ink px-6 py-3.5 text-[0.7rem] tracking-luxe uppercase hover:bg-cream transition-colors"
+              >
+                <Phone size={14} /> Call the Hotel
+              </a>
+              <a
+                href={`mailto:${HOTEL.email}`}
+                className="inline-flex items-center gap-2 border border-cream/30 text-cream px-6 py-3.5 text-[0.7rem] tracking-luxe uppercase hover:bg-cream hover:text-ink transition-colors"
+              >
+                <Mail size={14} /> Email Concierge
+              </a>
+            </div>
+
+            <div className="mt-10 pt-8 border-t border-cream/15">
+              <p className="eyebrow text-cream/60 mb-5">Nearby</p>
+              <ul className="space-y-3">
+                {NEARBY.map((n) => (
+                  <li key={n.name} className="flex items-baseline justify-between gap-4 text-sm">
+                    <span className="text-cream/90">{n.name}</span>
+                    <span className="text-cream/50 text-[0.7rem] tracking-wider">{n.distance}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-10 pt-8 border-t border-cream/15 flex items-center gap-5">
+              <span className="text-[0.65rem] tracking-luxe uppercase text-cream/60">Follow</span>
+              <a href={HOTEL.instagram} target="_blank" rel="noreferrer" className="text-cream/70 hover:text-gold transition-colors" aria-label="Instagram"><Instagram size={18} /></a>
+              <a href={HOTEL.facebook} target="_blank" rel="noreferrer" className="text-cream/70 hover:text-gold transition-colors" aria-label="Facebook"><Facebook size={18} /></a>
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(HOTEL.address)}`}
+                target="_blank" rel="noreferrer"
+                className="ml-auto inline-flex items-center gap-2 text-[0.65rem] tracking-luxe uppercase text-cream/70 hover:text-gold transition-colors"
+              >
+                <Navigation size={14} /> Directions
+              </a>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9, delay: 0.1 }}
+            className="md:col-span-7"
+          >
+            <div className="relative aspect-[4/5] md:aspect-[5/6] overflow-hidden border border-cream/15">
+              <iframe
+                title="Map of Hotel Velsatis, Beni Mellal"
+                src={mapSrc}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="h-full w-full grayscale contrast-110"
+              />
+            </div>
+            <div className="mt-4 grid grid-cols-3 gap-px bg-cream/15">
+              <Mini label="Check-in" value={HOTEL.checkIn} />
+              <Mini label="Check-out" value={HOTEL.checkOut} />
+              <Mini label="License" value={HOTEL.license} />
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Row({ icon, label, value, href }: { icon: React.ReactNode; label: string; value: string; href?: string }) {
+  const body = (
+    <div className="flex items-start gap-4 group">
+      <span className="mt-1 text-gold">{icon}</span>
+      <div>
+        <p className="text-[0.6rem] tracking-luxe uppercase text-cream/50">{label}</p>
+        <p className="mt-1 text-base text-cream/95 group-hover:text-gold transition-colors">{value}</p>
+      </div>
+    </div>
+  );
+  return href ? <a href={href}>{body}</a> : body;
+}
+
+function Mini({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="bg-ink p-4 text-center">
+      <p className="text-[0.6rem] tracking-luxe uppercase text-cream/50">{label}</p>
+      <p className="mt-1.5 font-display text-lg text-cream">{value}</p>
+    </div>
+  );
+}
