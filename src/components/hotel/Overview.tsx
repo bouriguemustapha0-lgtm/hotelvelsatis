@@ -1,14 +1,15 @@
 import { motion } from "motion/react";
 import { HOTEL } from "@/lib/hotel-data";
-
-const stats = [
-  { value: "12+", label: "Years of Hospitality" },
-  { value: "50", label: "Considered Rooms" },
-  { value: "5000+", label: "Guests Welcomed" },
-  { value: HOTEL.rating.toFixed(1), label: "Guest Rating" },
-];
+import { useT } from "@/lib/i18n";
 
 export function Overview() {
+  const t = useT();
+  const stats = [
+    { value: "12+", label: t("overview.stats.years") },
+    { value: "50", label: t("overview.stats.rooms") },
+    { value: "5000+", label: t("overview.stats.guests") },
+    { value: HOTEL.rating.toFixed(1), label: t("overview.stats.rating") },
+  ];
   return (
     <section className="relative bg-background py-16 md:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
@@ -21,10 +22,10 @@ export function Overview() {
             className="min-w-0 lg:col-span-5"
           >
             <p className="eyebrow flex items-center gap-3">
-              <span className="gold-rule" /> Our Story
+              <span className="gold-rule" /> {t("overview.eyebrow")}
             </p>
             <h2 className="mt-6 font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05]">
-              A house of <em className="italic text-gold">warm hospitality</em> at the foot of the Atlas.
+              {t("overview.title1")} <em className="italic text-gold">{t("overview.titleEm")}</em> {t("overview.title2")}
             </h2>
           </motion.div>
 
@@ -35,21 +36,10 @@ export function Overview() {
             transition={{ duration: 0.8, delay: 0.15 }}
             className="min-w-0 lg:col-span-7 lg:pt-4 space-y-6 text-base md:text-lg leading-relaxed text-foreground/75"
           >
-            <p>
-              Set on Boulevard Mohamed V in the heart of Beni Mellal,
-              Velsatis was conceived as a quiet counterpoint to the city's
-              rhythm — a place where Moroccan craft, considered service and
-              an unhurried café culture come together under one roof.
-            </p>
-            <p>
-              Our philosophy is simple. Spaces should breathe. Light should be
-              respected. Guests should be remembered. Whether you arrive for a
-              single night between Marrakech and Fès, or stay a week to explore
-              the cascades d'Ouzoud and the Middle Atlas, we keep things
-              generous, warm, and personal.
-            </p>
+            <p>{t("overview.p1")}</p>
+            <p>{t("overview.p2")}</p>
             <p className="text-foreground/55 italic font-display text-xl">
-              "Luxury, here, is the absence of friction."
+              "{t("overview.quote")}"
             </p>
           </motion.div>
         </div>

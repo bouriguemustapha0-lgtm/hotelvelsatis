@@ -4,6 +4,7 @@ import {
   Car, Wind, Plane,
 } from "lucide-react";
 import { AMENITIES } from "@/lib/hotel-data";
+import { useT } from "@/lib/i18n";
 
 const ICONS: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
   wifi: Wifi,
@@ -17,19 +18,19 @@ const ICONS: Record<string, React.ComponentType<{ size?: number; className?: str
 };
 
 export function Amenities() {
+  const t = useT();
   return (
     <section id="amenities" className="relative bg-background py-16 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-2xl">
           <p className="eyebrow flex items-center gap-3">
-            <span className="gold-rule" /> Amenities
+            <span className="gold-rule" /> {t("amenities.eyebrow")}
           </p>
           <h2 className="mt-6 font-display text-4xl md:text-6xl leading-[1.05]">
-            Small details, <em className="italic text-gold">unhurried comfort.</em>
+            {t("amenities.title1")} <em className="italic text-gold">{t("amenities.titleEm")}</em>
           </h2>
           <p className="mt-6 text-foreground/70 leading-relaxed">
-            Everything you expect from a thoughtful house, nothing you don't.
-            These are the services already included in your stay.
+            {t("amenities.intro")}
           </p>
         </div>
 
@@ -38,7 +39,7 @@ export function Amenities() {
             const Icon = ICONS[a.icon] ?? Wifi;
             return (
               <motion.div
-                key={a.name}
+                key={a.icon}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
@@ -46,8 +47,8 @@ export function Amenities() {
                 className="bg-background p-7 md:p-9 group hover:bg-secondary transition-colors duration-500"
               >
                 <Icon size={28} className="text-gold transition-transform duration-500 group-hover:scale-110" />
-                <h3 className="mt-6 font-display text-xl md:text-2xl">{a.name}</h3>
-                <p className="mt-2 text-sm text-foreground/65 leading-relaxed">{a.desc}</p>
+                <h3 className="mt-6 font-display text-xl md:text-2xl">{t(`amenities.items.${a.icon}.name`)}</h3>
+                <p className="mt-2 text-sm text-foreground/65 leading-relaxed">{t(`amenities.items.${a.icon}.desc`)}</p>
               </motion.div>
             );
           })}

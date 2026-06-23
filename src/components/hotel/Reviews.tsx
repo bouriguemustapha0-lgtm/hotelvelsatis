@@ -1,25 +1,27 @@
 import { motion } from "motion/react";
 import { Star, Quote } from "lucide-react";
 import { HOTEL, REVIEWS } from "@/lib/hotel-data";
+import { useT } from "@/lib/i18n";
 
 export function Reviews() {
+  const t = useT();
   return (
     <section id="reviews" className="relative bg-background py-16 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-end mb-12 md:mb-20">
           <div className="md:col-span-7">
             <p className="eyebrow flex items-center gap-3">
-              <span className="gold-rule" /> Guest Voices
+              <span className="gold-rule" /> {t("reviews.eyebrow")}
             </p>
             <h2 className="mt-6 font-display text-4xl md:text-6xl leading-[1.05]">
-              <em className="italic text-gold">{HOTEL.rating.toFixed(1)}</em> from {HOTEL.reviewsCount} travellers, in their own words.
+              <em className="italic text-gold">{HOTEL.rating.toFixed(1)}</em> {t("reviews.titleStart", { count: HOTEL.reviewsCount })}
             </h2>
           </div>
           <div className="md:col-span-5 grid grid-cols-3 gap-px bg-border self-stretch">
             {Object.entries(HOTEL.scores).slice(0, 3).map(([k, v]) => (
               <div key={k} className="bg-background p-5 text-center">
                 <div className="font-display text-3xl text-foreground">{v.toFixed(1)}</div>
-                <p className="mt-1 text-[0.6rem] tracking-luxe uppercase text-muted-foreground">{k}</p>
+                <p className="mt-1 text-[0.6rem] tracking-luxe uppercase text-muted-foreground">{t(`reviews.scores.${k}`)}</p>
               </div>
             ))}
           </div>
@@ -42,7 +44,7 @@ export function Reviews() {
               <figcaption className="mt-8 flex items-center justify-between pt-6 border-t border-foreground/15 group-hover:border-cream/20 transition-colors">
                 <div>
                   <div className="text-sm font-medium">{r.name}</div>
-                  <div className="text-[0.65rem] tracking-luxe uppercase opacity-60 mt-1">{r.country}</div>
+                  <div className="text-[0.65rem] tracking-luxe uppercase opacity-60 mt-1">{t(`reviews.countries.${r.country}`)}</div>
                 </div>
                 <div className="flex items-center gap-1.5 text-gold">
                   <Star size={14} fill="currentColor" />
