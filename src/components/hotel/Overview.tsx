@@ -10,20 +10,20 @@ const stats = [
 
 export function Overview() {
   return (
-    <section className="relative bg-background py-16 md:py-32">
+    <section className="relative bg-background py-16 md:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-16 md:grid-cols-12 md:gap-20">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
-            className="md:col-span-5"
+            className="min-w-0 lg:col-span-5"
           >
             <p className="eyebrow flex items-center gap-3">
               <span className="gold-rule" /> Our Story
             </p>
-            <h2 className="mt-6 font-display text-4xl md:text-6xl leading-[1.05]">
+            <h2 className="mt-6 font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05]">
               A house of <em className="italic text-gold">warm hospitality</em> at the foot of the Atlas.
             </h2>
           </motion.div>
@@ -33,7 +33,7 @@ export function Overview() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="md:col-span-7 md:pt-4 space-y-6 text-base md:text-lg leading-relaxed text-foreground/75"
+            className="min-w-0 lg:col-span-7 lg:pt-4 space-y-6 text-base md:text-lg leading-relaxed text-foreground/75"
           >
             <p>
               Set on Boulevard Mohamed V in the heart of Beni Mellal,
@@ -54,7 +54,7 @@ export function Overview() {
           </motion.div>
         </div>
 
-        <div className="mt-20 md:mt-28 grid grid-cols-2 md:grid-cols-4 gap-px bg-border">
+        <div className="mt-16 md:mt-20 lg:mt-28 grid grid-cols-2 md:grid-cols-4 gap-px bg-border">
           {stats.map((s, i) => (
             <motion.div
               key={s.label}
