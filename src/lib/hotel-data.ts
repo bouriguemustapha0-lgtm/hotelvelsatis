@@ -165,17 +165,20 @@ export const REVIEWS = [
 ];
 
 export const GALLERY: { src: string; alt: string; category: string }[] = [
-  { src: IMAGES.heroNight, alt: "Hotel facade illuminated at night", category: "Exterior" },
-  { src: twinBed.url, alt: "Twin room dressed in Moroccan linens", category: "Rooms" },
+  { src: exteriorNight.url, alt: "Velsatis facade illuminated at night with glass terrace", category: "Exterior" },
+  { src: doubleRoom.url, alt: "Double room with cobalt wall and Moroccan linens", category: "Rooms" },
   { src: pizza.url, alt: "Wood-fired pizza with the Velsatis menu", category: "Dining" },
-  { src: lounge.url, alt: "Lounge and lobby with crimson seating", category: "Interior" },
-  { src: IMAGES.exteriorStreet, alt: "Velsatis building on the boulevard", category: "Exterior" },
+  { src: redLounge.url, alt: "Lounge with red velvet armchairs", category: "Interior" },
+  { src: exteriorFacade.url, alt: "Velsatis building facade by day", category: "Exterior" },
+  { src: twinBed.url, alt: "Twin room dressed in Moroccan linens", category: "Rooms" },
+  { src: breakfast.url, alt: "Continental breakfast with fresh juice and pastries", category: "Dining" },
+  { src: lounge.url, alt: "Lobby with crimson seating", category: "Interior" },
+  { src: paniniWrap.url, alt: "Panini and wrap with golden fries", category: "Dining" },
+  { src: dessertCups.url, alt: "Signature dessert cups in the café", category: "Dining" },
   { src: singleBed.url, alt: "Single room with patterned throw", category: "Rooms" },
-  { src: restaurantHall.url, alt: "Restaurant set for service", category: "Dining" },
+  { src: crepes.url, alt: "Chocolate-drizzled crêpes with hot chocolate", category: "Dining" },
   { src: atrium.url, alt: "Atrium with mezzanine and staircase", category: "Interior" },
-  { src: food.url, alt: "Plated main course with seasonal vegetables", category: "Dining" },
-  { src: dessert.url, alt: "Signature ice cream coupe", category: "Dining" },
-  { src: IMAGES.exteriorDay, alt: "Hotel facade by day", category: "Exterior" },
+  { src: IMAGES.exteriorStreet, alt: "Velsatis building on the boulevard", category: "Exterior" },
 ];
 
 
