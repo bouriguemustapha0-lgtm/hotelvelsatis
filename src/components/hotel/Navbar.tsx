@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { useT } from "@/lib/i18n";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import logoAsset from "@/assets/velsatis-logo.png.asset.json";
 
 const LINKS = [
   { href: "#home", key: "nav.home" },
@@ -38,21 +39,12 @@ export function Navbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 md:py-5">
-        <a href="#home" className="flex min-w-0 items-baseline gap-2 group">
-          <span
-            className={`font-display text-2xl md:text-[1.65rem] tracking-tight transition-colors ${
-              scrolled ? "text-foreground" : "text-cream"
-            }`}
-          >
-            Velsatis
-          </span>
-          <span
-            className={`hidden lg:inline whitespace-nowrap text-[0.65rem] tracking-luxe uppercase transition-colors ${
-              scrolled ? "text-muted-foreground" : "text-cream/70"
-            }`}
-          >
-            Beni Mellal
-          </span>
+        <a href="#home" className="flex min-w-0 items-center group" aria-label="Velsatis Hotel & Resort">
+          <img
+            src={logoAsset.url}
+            alt="Velsatis Hotel & Resort"
+            className="h-10 md:h-12 w-auto object-contain transition-all"
+          />
         </a>
 
         <ul className="hidden lg:flex items-center gap-7 xl:gap-9">
