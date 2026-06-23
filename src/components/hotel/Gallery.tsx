@@ -2,8 +2,10 @@ import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { GALLERY, CATEGORIES } from "@/lib/hotel-data";
+import { useT } from "@/lib/i18n";
 
 export function Gallery() {
+  const t = useT();
   const [filter, setFilter] = useState<(typeof CATEGORIES)[number]>("All");
   const [lightbox, setLightbox] = useState<number | null>(null);
 
@@ -29,10 +31,10 @@ export function Gallery() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12 md:mb-16">
           <div>
             <p className="eyebrow flex items-center gap-3">
-              <span className="gold-rule" /> Experience
+              <span className="gold-rule" /> {t("gallery.eyebrow")}
             </p>
             <h2 className="mt-6 font-display text-4xl md:text-6xl leading-[1.05]">
-              A house in <em className="italic text-gold">eight frames.</em>
+              {t("gallery.title1")} <em className="italic text-gold">{t("gallery.titleEm")}</em>
             </h2>
           </div>
           <ul className="flex flex-wrap gap-2">
@@ -46,7 +48,7 @@ export function Gallery() {
                       : "border-foreground/20 text-foreground/70 hover:border-gold hover:text-gold"
                   }`}
                 >
-                  {c}
+                  {t(`gallery.categories.${c}`)}
                 </button>
               </li>
             ))}
@@ -74,7 +76,7 @@ export function Gallery() {
                 />
                 <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/30 transition-colors duration-500" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                  <p className="text-[0.6rem] tracking-luxe uppercase text-cream/80">{img.category}</p>
+                  <p className="text-[0.6rem] tracking-luxe uppercase text-cream/80">{t(`gallery.categories.${img.category}`)}</p>
                 </div>
               </motion.button>
             ))}
@@ -104,6 +106,7 @@ function Lightbox({
   onClose: () => void;
   onNav: (i: number) => void;
 }) {
+  const t = useT();
   const img = images[index];
   const prev = () => onNav((index - 1 + images.length) % images.length);
   const next = () => onNav((index + 1) % images.length);
@@ -134,7 +137,7 @@ function Lightbox({
       >
         <img src={img.src} alt={img.alt} className="w-full max-h-[80vh] object-contain" />
         <figcaption className="mt-4 text-center text-[0.7rem] tracking-luxe uppercase text-cream/70">
-          {img.category} · {index + 1} / {images.length}
+          {t(`gallery.categories.${img.category}`)} · {index + 1} / {images.length}
         </figcaption>
       </motion.figure>
     </motion.div>
