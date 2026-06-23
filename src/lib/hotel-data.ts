@@ -51,7 +51,7 @@ export const HOTEL = {
     "https://www.expedia.com/Beni-Mellal-Hotels-VELSATIS.h110888187.Hotel-Information",
   trip:
     "https://www.trip.com/hotels/detail/?cityEnName=Beni+Mellal&cityId=60816&hotelId=47054091",
-  mapsUrl: "https://maps.app.goo.gl/gji4PeLKnUafYZtC7",
+  mapsUrl: "https://www.google.com/maps/place/H%C3%B4tel+Velsatis/@32.3288119,-6.3725211,21z/data=!4m17!1m5!3m4!2zMzLCsDE5JzQzLjUiTiA2wrAyMicyMS4wIlc!8m2!3d32.32875!4d-6.3725!3m10!1s0xda387b76cad7809:0x61c599517976ab8!5m4!1s2026-07-19!2i2!4m1!1i2!8m2!3d32.3288404!4d-6.3725805!16s%2Fg%2F11g_twwk8t?hl=en&entry=ttu&g_ep=EgoyMDI2MDYxNi4wIKXMDSoASAFQAw%3D%3D",
   rating: 7.4,
   ratingLabel: "Good",
   reviewsCount: 471,
