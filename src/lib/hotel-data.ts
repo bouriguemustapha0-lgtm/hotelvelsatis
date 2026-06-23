@@ -33,7 +33,7 @@ export const HOTEL = {
   stars: 3,
   city: "Beni Mellal",
   country: "Morocco",
-  address: "55 Boulevard Mohamed V, Beni-Mellal 23000",
+  address: "55 Boulevard Mohamed V, Beni Mellal, Beni Mellal-Khenifra, 23000, Morocco",
   coords: { lat: 32.328755, lng: -6.372505 },
   phone: "+212 523-420604",
   phoneLocal: "0523 42 06 04",
@@ -49,6 +49,8 @@ export const HOTEL = {
     "https://fr.reserving.com/hotels/afrique/maroc/tadla-azilal/beni-mellal/beni-mellal/hotel-velsatis",
   expedia:
     "https://www.expedia.com/Beni-Mellal-Hotels-VELSATIS.h110888187.Hotel-Information",
+  trip:
+    "https://www.trip.com/hotels/detail/?cityEnName=Beni+Mellal&cityId=60816&hotelId=47054091",
   rating: 7.4,
   ratingLabel: "Good",
   reviewsCount: 471,
