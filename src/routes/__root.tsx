@@ -83,6 +83,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "Hotel Velsatis" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Hotel Velsatis — Beni Mellal" },
+      { name: "twitter:title", content: "Hotel Velsatis — Beni Mellal" },
+      { property: "og:description", content: "Boutique luxury hotel in Beni Mellal, Morocco." },
+      { name: "twitter:description", content: "Boutique luxury hotel in Beni Mellal, Morocco." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1e933fe6-d281-4bc2-a5c9-c6d0914b1037/id-preview-09bd7a73--a85c4171-a160-4c50-af33-279af9280696.lovable.app-1782217265217.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1e933fe6-d281-4bc2-a5c9-c6d0914b1037/id-preview-09bd7a73--a85c4171-a160-4c50-af33-279af9280696.lovable.app-1782217265217.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
