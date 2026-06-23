@@ -111,9 +111,8 @@ export function Navbar() {
               ))}
               <li>
                 <a
-                  href={HOTEL.booking}
-                  target="_blank"
-                  rel="noreferrer"
+                  href="#book"
+                  onClick={() => setOpen(false)}
                   className="inline-block border border-foreground/30 px-5 py-2.5 text-xs tracking-luxe uppercase"
                 >
                   Reserve
