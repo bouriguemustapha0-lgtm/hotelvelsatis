@@ -90,10 +90,10 @@ export const ROOMS = [
     bed: "1 queen bed",
     capacity: 2,
     price: 720,
-    image: IMAGES.lobby,
+    image: doubleRoom.url,
     description:
-      "A queen bed, warm woods and a wide private terrace. Composed for couples who prefer their cities at the foot of mountains.",
-    amenities: ["Queen bed", "Mountain view", "Terrace", "Free Wifi", "TV"],
+      "A queen bed dressed in crisp white linens against a deep cobalt wall, with patterned Moroccan throws and a private balcony overlooking the boulevard.",
+    amenities: ["Queen bed", "Mountain view", "Balcony", "Free Wifi", "TV"],
   },
   {
     id: "triple",
