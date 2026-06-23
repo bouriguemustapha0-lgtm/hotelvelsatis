@@ -185,7 +185,7 @@ export const TRANSLATIONS: Record<Locale, Dict> = {
     booking: {
       eyebrow: "Réservez Votre Séjour",
       title1: "Réservez directement sur votre", titleEm: "plateforme préférée.",
-      labels: { TripAdvisor: "Lire les Avis", "Booking.com": "Réserver", "Reserving.com": "Réserver" },
+      labels: { TripAdvisor: "Lire les Avis", "Booking.com": "Réserver", "Reserving.com": "Réserver", "Expedia": "Réserver" },
     },
     location: {
       eyebrow: "Nous Trouver",
