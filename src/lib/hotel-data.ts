@@ -1,31 +1,31 @@
-import lounge from "@/assets/velsatis1.jpg.asset.json";
-import food from "@/assets/velsatis-2.jpg.asset.json";
-import twinBed from "@/assets/velsatis-3.jpg.asset.json";
-import atrium from "@/assets/velsatis-4.jpg.asset.json";
-import restaurantHall from "@/assets/velsatis-5.jpg.asset.json";
-import dessert from "@/assets/velsatis-6.jpg.asset.json";
-import pizza from "@/assets/velsatis-7.jpg.asset.json";
-import singleBed from "@/assets/velsatis-8.jpg.asset.json";
-import exteriorFacade from "@/assets/velsatis-10.jpg.asset.json";
-import paniniWrap from "@/assets/velsatis-11.jpg.asset.json";
-import dessertCups from "@/assets/velsatis-12.jpg.asset.json";
-import breakfast from "@/assets/velsatis-13.jpg.asset.json";
-import exteriorNight from "@/assets/velsatis-14.jpg.asset.json";
-import redLounge from "@/assets/velsatis-15.jpg.asset.json";
-import crepes from "@/assets/velsatis-16.jpg.asset.json";
-import doubleRoom from "@/assets/velsatis-17.jpg.asset.json";
-import twinBalcony from "@/assets/velsatis-19.jpg.asset.json";
-import tripleRoom from "@/assets/velsatis-20.jpg.asset.json";
-import wrapCoke from "@/assets/velsatis-24.jpg.asset.json";
-import pastaCream from "@/assets/velsatis-25.jpg.asset.json";
-import chickenPlate from "@/assets/velsatis-26.jpg.asset.json";
-import gratin from "@/assets/velsatis-27.jpg.asset.json";
-import paniniMenu from "@/assets/velsatis-28.jpg.asset.json";
-import redLoungeWide from "@/assets/velsatis-29.jpg.asset.json";
-import pastaPizza from "@/assets/velsatis-30.jpg.asset.json";
-import iceCoupes from "@/assets/velsatis-31.jpg.asset.json";
-import facadeNeon from "@/assets/velsatis-32.jpg.asset.json";
-import streetNight from "@/assets/velsatis-street.webp.asset.json";
+import lounge from "@/assets/velsatis1.jpg";
+import food from "@/assets/velsatis-2.jpg";
+import twinBed from "@/assets/velsatis-3.jpg";
+import atrium from "@/assets/velsatis-4.jpg";
+import restaurantHall from "@/assets/velsatis-5.jpg";
+import dessert from "@/assets/velsatis-6.jpg";
+import pizza from "@/assets/velsatis-7.jpg";
+import singleBed from "@/assets/velsatis-8.jpg";
+import exteriorFacade from "@/assets/velsatis-10.jpg";
+import paniniWrap from "@/assets/velsatis-11.jpg";
+import dessertCups from "@/assets/velsatis-12.jpg";
+import breakfast from "@/assets/velsatis-13.jpg";
+import exteriorNight from "@/assets/velsatis-14.jpg";
+import redLounge from "@/assets/velsatis-15.jpg";
+import crepes from "@/assets/velsatis-16.jpg";
+import doubleRoom from "@/assets/velsatis-17.jpg";
+import twinBalcony from "@/assets/velsatis-19.jpg";
+import tripleRoom from "@/assets/velsatis-20.jpg";
+import wrapCoke from "@/assets/velsatis-24.jpg";
+import pastaCream from "@/assets/velsatis-25.jpg";
+import chickenPlate from "@/assets/velsatis-26.jpg";
+import gratin from "@/assets/velsatis-27.jpg";
+import paniniMenu from "@/assets/velsatis-28.jpg";
+import redLoungeWide from "@/assets/velsatis-29.jpg";
+import pastaPizza from "@/assets/velsatis-30.jpg";
+import iceCoupes from "@/assets/velsatis-31.jpg";
+import facadeNeon from "@/assets/velsatis-32.jpg";
+import streetNight from "@/assets/velsatis-street.webp";
 
 export const HOTEL = {
   name: "Velsatis",
@@ -90,7 +90,7 @@ export const ROOMS = [
     bed: "1 twin bed",
     capacity: 1,
     price: 480,
-    image: singleBed.url,
+    image: singleBed,
     description:
       "An intimate refuge designed for the solo traveller. Soft linens, private balcony and the quiet rhythm of Mohamed V boulevard at dusk.",
     amenities: ["Private balcony", "Air-conditioning", "Flat-screen TV", "Free Wifi", "Wardrobe"],
@@ -101,7 +101,7 @@ export const ROOMS = [
     bed: "2 twin beds",
     capacity: 2,
     price: 620,
-    image: twinBalcony.url,
+    image: twinBalcony,
     description:
       "Twin beds dressed in warm earth-toned Moroccan linens, opening through tall glass doors onto a private balcony with iron railings and potted greenery.",
     amenities: ["Private balcony", "Air-conditioning", "Twin beds", "Free Wifi", "Tea table"],
@@ -112,7 +112,7 @@ export const ROOMS = [
     bed: "1 queen bed",
     capacity: 2,
     price: 720,
-    image: doubleRoom.url,
+    image: doubleRoom,
     description:
       "A queen bed dressed in crisp white linens against a deep cobalt wall, with patterned Moroccan throws and a private balcony overlooking the boulevard.",
     amenities: ["Queen bed", "Mountain view", "Balcony", "Free Wifi", "TV"],
@@ -123,7 +123,7 @@ export const ROOMS = [
     bed: "3 twin beds",
     capacity: 3,
     price: 880,
-    image: tripleRoom.url,
+    image: tripleRoom,
     description:
       "A vivid family suite in deep terracotta, three twin beds dressed in monochrome arabesque linens. Generous space for families or friends exploring the Middle Atlas.",
     amenities: ["Three twin beds", "City view", "Air-conditioning", "Free Wifi", "Wardrobe"],
@@ -187,32 +187,32 @@ export const REVIEWS = [
 ];
 
 export const GALLERY: { src: string; alt: string; category: string }[] = [
-  { src: exteriorNight.url, alt: "Velsatis facade illuminated at night with glass terrace", category: "Exterior" },
-  { src: doubleRoom.url, alt: "Double room with cobalt wall and Moroccan linens", category: "Rooms" },
-  { src: pizza.url, alt: "Wood-fired pizza with the Velsatis menu", category: "Dining" },
-  { src: redLounge.url, alt: "Lounge with red velvet armchairs", category: "Interior" },
-  { src: exteriorFacade.url, alt: "Velsatis building facade by day", category: "Exterior" },
-  { src: twinBed.url, alt: "Twin room dressed in Moroccan linens", category: "Rooms" },
-  { src: breakfast.url, alt: "Continental breakfast with fresh juice and pastries", category: "Dining" },
-  { src: lounge.url, alt: "Lobby with crimson seating", category: "Interior" },
-  { src: paniniWrap.url, alt: "Panini and wrap with golden fries", category: "Dining" },
-  { src: dessertCups.url, alt: "Signature dessert cups in the café", category: "Dining" },
-  { src: singleBed.url, alt: "Single room with patterned throw", category: "Rooms" },
-  { src: crepes.url, alt: "Chocolate-drizzled crêpes with hot chocolate", category: "Dining" },
-  { src: atrium.url, alt: "Atrium with mezzanine and staircase", category: "Interior" },
+  { src: exteriorNight, alt: "Velsatis facade illuminated at night with glass terrace", category: "Exterior" },
+  { src: doubleRoom, alt: "Double room with cobalt wall and Moroccan linens", category: "Rooms" },
+  { src: pizza, alt: "Wood-fired pizza with the Velsatis menu", category: "Dining" },
+  { src: redLounge, alt: "Lounge with red velvet armchairs", category: "Interior" },
+  { src: exteriorFacade, alt: "Velsatis building facade by day", category: "Exterior" },
+  { src: twinBed, alt: "Twin room dressed in Moroccan linens", category: "Rooms" },
+  { src: breakfast, alt: "Continental breakfast with fresh juice and pastries", category: "Dining" },
+  { src: lounge, alt: "Lobby with crimson seating", category: "Interior" },
+  { src: paniniWrap, alt: "Panini and wrap with golden fries", category: "Dining" },
+  { src: dessertCups, alt: "Signature dessert cups in the café", category: "Dining" },
+  { src: singleBed, alt: "Single room with patterned throw", category: "Rooms" },
+  { src: crepes, alt: "Chocolate-drizzled crêpes with hot chocolate", category: "Dining" },
+  { src: atrium, alt: "Atrium with mezzanine and staircase", category: "Interior" },
   { src: IMAGES.exteriorStreet, alt: "Velsatis building on the boulevard", category: "Exterior" },
-  { src: facadeNeon.url, alt: "Velsatis hotel neon signage at night", category: "Exterior" },
-  { src: streetNight.url, alt: "Velsatis on Mohamed V boulevard at night with motorcycles", category: "Exterior" },
-  { src: twinBalcony.url, alt: "Twin room with balcony and earth-toned linens", category: "Rooms" },
-  { src: tripleRoom.url, alt: "Triple family suite with terracotta walls", category: "Rooms" },
-  { src: redLoungeWide.url, alt: "Red velvet lounge with glass tables", category: "Interior" },
-  { src: chickenPlate.url, alt: "Chicken in cream sauce with fries and vegetables", category: "Dining" },
-  { src: pastaCream.url, alt: "Orecchiette with chicken and mushroom cream sauce", category: "Dining" },
-  { src: pastaPizza.url, alt: "Spaghetti carbonara with wood-fired pizza", category: "Dining" },
-  { src: gratin.url, alt: "Golden baked pasta gratin", category: "Dining" },
-  { src: paniniMenu.url, alt: "Velsatis panini with the house menu", category: "Dining" },
-  { src: wrapCoke.url, alt: "Beef wrap with fries and Coca-Cola", category: "Dining" },
-  { src: iceCoupes.url, alt: "Signature Velsatis ice cream coupes", category: "Dining" },
+  { src: facadeNeon, alt: "Velsatis hotel neon signage at night", category: "Exterior" },
+  { src: streetNight, alt: "Velsatis on Mohamed V boulevard at night with motorcycles", category: "Exterior" },
+  { src: twinBalcony, alt: "Twin room with balcony and earth-toned linens", category: "Rooms" },
+  { src: tripleRoom, alt: "Triple family suite with terracotta walls", category: "Rooms" },
+  { src: redLoungeWide, alt: "Red velvet lounge with glass tables", category: "Interior" },
+  { src: chickenPlate, alt: "Chicken in cream sauce with fries and vegetables", category: "Dining" },
+  { src: pastaCream, alt: "Orecchiette with chicken and mushroom cream sauce", category: "Dining" },
+  { src: pastaPizza, alt: "Spaghetti carbonara with wood-fired pizza", category: "Dining" },
+  { src: gratin, alt: "Golden baked pasta gratin", category: "Dining" },
+  { src: paniniMenu, alt: "Velsatis panini with the house menu", category: "Dining" },
+  { src: wrapCoke, alt: "Beef wrap with fries and Coca-Cola", category: "Dining" },
+  { src: iceCoupes, alt: "Signature Velsatis ice cream coupes", category: "Dining" },
 ];
 
 

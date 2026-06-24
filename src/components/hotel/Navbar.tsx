@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { useT } from "@/lib/i18n";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-import logoAsset from "@/assets/velsatis-logo.png.asset.json";
+import logoAsset from "@/assets/velsatis-logo.png";
 
 const LINKS = [
   { href: "#home", key: "nav.home" },
@@ -41,7 +41,7 @@ export function Navbar() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 md:py-5">
         <a href="#home" className="flex min-w-0 items-center group" aria-label="Velsatis Hotel & Resort">
           <img
-            src={logoAsset.url}
+            src={logoAsset}
             alt="Velsatis Hotel & Resort"
             className="h-10 md:h-12 w-auto object-contain transition-all"
           />
