@@ -11,7 +11,7 @@ const LINKS = [
   { href: "#amenities", key: "nav.amenities" },
   { href: "#gallery", key: "nav.gallery" },
   { href: "#reviews", key: "nav.reviews" },
-  { href: "#book", key: "nav.book" },
+  { href: "#reserve", key: "nav.book" },
   { href: "#contact", key: "nav.contact" },
 ];
 
@@ -65,7 +65,7 @@ export function Navbar() {
         <div className="hidden lg:flex items-center gap-3">
           <LanguageSwitcher scrolled={scrolled} />
           <a
-            href="#book"
+            href="#reserve"
             className={`inline-flex items-center gap-2 border px-5 py-2.5 text-[0.7rem] tracking-luxe uppercase transition-all ${
               scrolled
                 ? "border-foreground/20 text-foreground hover:bg-foreground hover:text-cream"
@@ -112,7 +112,7 @@ export function Navbar() {
               ))}
               <li className="pt-4">
                 <a
-                  href="#book"
+                  href="#reserve"
                   onClick={() => setOpen(false)}
                   className="block text-center border border-foreground/30 px-5 py-3.5 text-xs tracking-luxe uppercase transition-colors active:bg-foreground active:text-cream"
                 >
