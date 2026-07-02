@@ -3,7 +3,6 @@ import { useEffect, useState, type FormEvent } from "react";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/auth")({
-  ssr: false,
   component: AuthPage,
   head: () => ({
     meta: [
