@@ -137,7 +137,7 @@ export function Reserve() {
               >
                 {ROOMS.map((r) => (
                   <option key={r.id} value={r.id}>
-                    {r.name} — from {r.price} MAD / night
+                    {r.name}
                   </option>
                 ))}
               </select>
