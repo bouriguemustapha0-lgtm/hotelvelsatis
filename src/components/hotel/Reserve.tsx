@@ -1,7 +1,8 @@
 import { useMemo, useState, type FormEvent } from "react";
 import { motion } from "motion/react";
-import { CalendarDays, Users, BedDouble, Mail, ArrowRight } from "lucide-react";
-import { HOTEL, ROOMS } from "@/lib/hotel-data";
+import { CalendarDays, Users, BedDouble, Mail, ArrowRight, Check } from "lucide-react";
+import { ROOMS } from "@/lib/hotel-data";
+import { supabase } from "@/integrations/supabase/client";
 
 const todayISO = () => new Date().toISOString().split("T")[0];
 const plusDaysISO = (n: number) => {
@@ -19,6 +20,8 @@ export function Reserve() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [notes, setNotes] = useState("");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [error, setError] = useState<string | null>(null);
 
   const nights = useMemo(() => {
     const ms = new Date(checkOut).getTime() - new Date(checkIn).getTime();
@@ -27,24 +30,25 @@ export function Reserve() {
 
   const room = ROOMS.find((r) => r.id === roomId) ?? ROOMS[0];
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const subject = `Reservation enquiry — ${room.name}`;
-    const body = [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      `Room: ${room.name}`,
-      `Check-in: ${checkIn}`,
-      `Check-out: ${checkOut}`,
-      `Nights: ${nights}`,
-      `Guests: ${adults} adult(s), ${children} child(ren)`,
-      "",
-      "Notes:",
-      notes || "—",
-    ].join("\n");
-    window.location.href = `mailto:${HOTEL.email}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
+    setStatus("sending"); setError(null);
+    const { error } = await supabase.from("booking_requests").insert({
+      guest_name: name.trim(),
+      guest_email: email.trim(),
+      room_id: room.id,
+      room_name: room.name,
+      check_in: checkIn,
+      check_out: checkOut,
+      nights,
+      adults,
+      children,
+      notes: notes.trim() || null,
+      status: "new",
+    });
+    if (error) { setStatus("error"); setError(error.message); return; }
+    setStatus("sent");
+    setName(""); setEmail(""); setNotes("");
   };
 
   return (
