@@ -3,7 +3,6 @@ import { useEffect, useState, type FormEvent } from "react";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/reset-password")({
-  ssr: false,
   component: ResetPasswordPage,
   head: () => ({
     meta: [
