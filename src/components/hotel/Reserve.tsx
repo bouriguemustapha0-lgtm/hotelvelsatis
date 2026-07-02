@@ -26,7 +26,6 @@ export function Reserve() {
   }, [checkIn, checkOut]);
 
   const room = ROOMS.find((r) => r.id === roomId) ?? ROOMS[0];
-  const estimate = nights * room.price;
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
