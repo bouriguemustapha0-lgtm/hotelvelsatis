@@ -189,12 +189,23 @@ export function Reserve() {
                 <Row label="Guests" value={`${adults} + ${children}`} />
               </div>
             </div>
-            <button
-              type="submit"
-              className="mt-8 inline-flex items-center justify-center gap-2 bg-gold text-ink px-6 py-4 text-xs tracking-luxe uppercase hover:bg-cream transition-colors"
-            >
-              Send Enquiry <ArrowRight size={14} />
-            </button>
+            <div className="mt-8 space-y-3">
+              {status === "sent" && (
+                <p className="text-xs tracking-luxe uppercase text-gold flex items-center gap-2">
+                  <Check size={14} /> Request received — we'll be in touch shortly.
+                </p>
+              )}
+              {status === "error" && (
+                <p className="text-xs text-red-300">Could not send: {error}</p>
+              )}
+              <button
+                type="submit"
+                disabled={status === "sending"}
+                className="w-full inline-flex items-center justify-center gap-2 bg-gold text-ink px-6 py-4 text-xs tracking-luxe uppercase hover:bg-cream transition-colors disabled:opacity-60"
+              >
+                {status === "sending" ? "Sending…" : <>Send Enquiry <ArrowRight size={14} /></>}
+              </button>
+            </div>
           </aside>
         </motion.form>
       </div>
