@@ -184,17 +184,6 @@ export function Reserve() {
                 <Row label="Nights" value={String(nights)} />
                 <Row label="Guests" value={`${adults} + ${children}`} />
               </div>
-              <div className="mt-8 pt-6 border-t border-cream/15">
-                <div className="flex items-baseline justify-between">
-                  <span className="text-cream/60 text-xs tracking-luxe uppercase">Estimate</span>
-                  <span className="font-display text-3xl text-gold">
-                    {estimate.toLocaleString()} MAD
-                  </span>
-                </div>
-                <p className="mt-2 text-xs text-cream/50">
-                  Indicative total, taxes included. Final rate confirmed by our team.
-                </p>
-              </div>
             </div>
             <button
               type="submit"
