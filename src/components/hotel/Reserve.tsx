@@ -38,7 +38,6 @@ export function Reserve() {
       `Check-out: ${checkOut}`,
       `Nights: ${nights}`,
       `Guests: ${adults} adult(s), ${children} child(ren)`,
-      `Estimated total: ${estimate} MAD`,
       "",
       "Notes:",
       notes || "—",
