@@ -12,6 +12,7 @@ const LINKS = [
   { href: "#gallery", key: "nav.gallery" },
   { href: "#reviews", key: "nav.reviews" },
   { href: "#book", key: "nav.book" },
+  { href: "#reserve", key: "nav.reserve" },
   { href: "#contact", key: "nav.contact" },
 ];
 

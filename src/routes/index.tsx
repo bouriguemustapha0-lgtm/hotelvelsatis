@@ -7,6 +7,7 @@ import { Amenities } from "@/components/hotel/Amenities";
 import { Gallery } from "@/components/hotel/Gallery";
 import { Reviews } from "@/components/hotel/Reviews";
 import { BookingPlatforms } from "@/components/hotel/BookingPlatforms";
+import { Reserve } from "@/components/hotel/Reserve";
 import { Location } from "@/components/hotel/Location";
 import { Footer } from "@/components/hotel/Footer";
 
@@ -46,6 +47,7 @@ function Index() {
       <Gallery />
       <Reviews />
       <BookingPlatforms />
+      <Reserve />
       <Location />
       <Footer />
     </main>
