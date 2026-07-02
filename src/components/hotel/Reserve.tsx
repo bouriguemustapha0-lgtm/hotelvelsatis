@@ -26,7 +26,6 @@ export function Reserve() {
   }, [checkIn, checkOut]);
 
   const room = ROOMS.find((r) => r.id === roomId) ?? ROOMS[0];
-  const estimate = nights * room.price;
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -39,7 +38,6 @@ export function Reserve() {
       `Check-out: ${checkOut}`,
       `Nights: ${nights}`,
       `Guests: ${adults} adult(s), ${children} child(ren)`,
-      `Estimated total: ${estimate} MAD`,
       "",
       "Notes:",
       notes || "—",
@@ -139,7 +137,7 @@ export function Reserve() {
               >
                 {ROOMS.map((r) => (
                   <option key={r.id} value={r.id}>
-                    {r.name} — from {r.price} MAD / night
+                    {r.name}
                   </option>
                 ))}
               </select>
@@ -185,17 +183,6 @@ export function Reserve() {
                 <Row label="Check-out" value={checkOut} />
                 <Row label="Nights" value={String(nights)} />
                 <Row label="Guests" value={`${adults} + ${children}`} />
-              </div>
-              <div className="mt-8 pt-6 border-t border-cream/15">
-                <div className="flex items-baseline justify-between">
-                  <span className="text-cream/60 text-xs tracking-luxe uppercase">Estimate</span>
-                  <span className="font-display text-3xl text-gold">
-                    {estimate.toLocaleString()} MAD
-                  </span>
-                </div>
-                <p className="mt-2 text-xs text-cream/50">
-                  Indicative total, taxes included. Final rate confirmed by our team.
-                </p>
               </div>
             </div>
             <button
