@@ -111,6 +111,48 @@ export const listManagers = createServerFn({ method: "GET" })
 const inviteSchema = z.object({
   email: z.string().trim().email().max(320),
 });
+
+const initialOwnerSchema = z.object({
+  email: z.string().trim().email().max(320),
+  password: z.string().min(8, "Password must be at least 8 characters").max(128),
+});
+
+const OWNER_EMAIL = "bouriguemustapha0@gmail.com";
+
+export const createInitialOwner = createServerFn({ method: "POST" })
+  .inputValidator((d: unknown) => initialOwnerSchema.parse(d))
+  .handler(async ({ data }) => {
+    if (data.email.toLowerCase() !== OWNER_EMAIL) {
+      throw new Error("Use the configured owner email for first-time setup");
+    }
+
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { data: existingOwner, error: ownerErr } = await supabaseAdmin
+      .from("user_roles")
+      .select("user_id")
+      .eq("role", "owner")
+      .limit(1);
+    if (ownerErr) throw new Error(ownerErr.message);
+    if ((existingOwner ?? []).length > 0) {
+      throw new Error("The owner account is already set up. Please sign in or reset your password.");
+    }
+
+    const { data: created, error } = await supabaseAdmin.auth.admin.createUser({
+      email: data.email,
+      password: data.password,
+      email_confirm: true,
+    });
+    if (error) throw new Error(error.message);
+    if (!created.user) throw new Error("Could not create owner account");
+
+    const { error: roleErr } = await supabaseAdmin
+      .from("user_roles")
+      .insert({ user_id: created.user.id, role: "owner" });
+    if (roleErr) throw new Error(roleErr.message);
+
+    return { ok: true };
+  });
+
 export const inviteManager = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((d: unknown) => inviteSchema.parse(d))
