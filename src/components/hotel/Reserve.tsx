@@ -1,7 +1,8 @@
 import { useMemo, useState, type FormEvent } from "react";
 import { motion } from "motion/react";
-import { CalendarDays, Users, BedDouble, Mail, ArrowRight } from "lucide-react";
-import { HOTEL, ROOMS } from "@/lib/hotel-data";
+import { CalendarDays, Users, BedDouble, Mail, ArrowRight, Check } from "lucide-react";
+import { ROOMS } from "@/lib/hotel-data";
+import { supabase } from "@/integrations/supabase/client";
 
 const todayISO = () => new Date().toISOString().split("T")[0];
 const plusDaysISO = (n: number) => {
@@ -19,6 +20,8 @@ export function Reserve() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [notes, setNotes] = useState("");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [error, setError] = useState<string | null>(null);
 
   const nights = useMemo(() => {
     const ms = new Date(checkOut).getTime() - new Date(checkIn).getTime();
@@ -27,24 +30,25 @@ export function Reserve() {
 
   const room = ROOMS.find((r) => r.id === roomId) ?? ROOMS[0];
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const subject = `Reservation enquiry — ${room.name}`;
-    const body = [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      `Room: ${room.name}`,
-      `Check-in: ${checkIn}`,
-      `Check-out: ${checkOut}`,
-      `Nights: ${nights}`,
-      `Guests: ${adults} adult(s), ${children} child(ren)`,
-      "",
-      "Notes:",
-      notes || "—",
-    ].join("\n");
-    window.location.href = `mailto:${HOTEL.email}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
+    setStatus("sending"); setError(null);
+    const { error } = await supabase.from("booking_requests").insert({
+      guest_name: name.trim(),
+      guest_email: email.trim(),
+      room_id: room.id,
+      room_name: room.name,
+      check_in: checkIn,
+      check_out: checkOut,
+      nights,
+      adults,
+      children,
+      notes: notes.trim() || null,
+      status: "new",
+    });
+    if (error) { setStatus("error"); setError(error.message); return; }
+    setStatus("sent");
+    setName(""); setEmail(""); setNotes("");
   };
 
   return (
@@ -185,12 +189,23 @@ export function Reserve() {
                 <Row label="Guests" value={`${adults} + ${children}`} />
               </div>
             </div>
-            <button
-              type="submit"
-              className="mt-8 inline-flex items-center justify-center gap-2 bg-gold text-ink px-6 py-4 text-xs tracking-luxe uppercase hover:bg-cream transition-colors"
-            >
-              Send Enquiry <ArrowRight size={14} />
-            </button>
+            <div className="mt-8 space-y-3">
+              {status === "sent" && (
+                <p className="text-xs tracking-luxe uppercase text-gold flex items-center gap-2">
+                  <Check size={14} /> Request received — we'll be in touch shortly.
+                </p>
+              )}
+              {status === "error" && (
+                <p className="text-xs text-red-300">Could not send: {error}</p>
+              )}
+              <button
+                type="submit"
+                disabled={status === "sending"}
+                className="w-full inline-flex items-center justify-center gap-2 bg-gold text-ink px-6 py-4 text-xs tracking-luxe uppercase hover:bg-cream transition-colors disabled:opacity-60"
+              >
+                {status === "sending" ? "Sending…" : <>Send Enquiry <ArrowRight size={14} /></>}
+              </button>
+            </div>
           </aside>
         </motion.form>
       </div>
