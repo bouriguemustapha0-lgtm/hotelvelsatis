@@ -1,6 +1,8 @@
 import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 import { useEffect, useState, type FormEvent } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { createInitialOwner } from "@/lib/admin.functions";
 
 export const Route = createFileRoute("/auth")({
   component: AuthPage,
@@ -14,7 +16,8 @@ export const Route = createFileRoute("/auth")({
 
 function AuthPage() {
   const navigate = useNavigate();
-  const [mode, setMode] = useState<"signin" | "forgot">("signin");
+  const setupOwner = useServerFn(createInitialOwner);
+  const [mode, setMode] = useState<"signin" | "forgot" | "setup">("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -47,17 +50,32 @@ function AuthPage() {
     setInfo("If an account exists for this email, a reset link has been sent.");
   };
 
+  const onSetup = async (e: FormEvent) => {
+    e.preventDefault();
+    setLoading(true); setError(null); setInfo(null);
+    try {
+      await setupOwner({ data: { email, password } });
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      setLoading(false);
+      if (error) return setError(error.message);
+      navigate({ to: "/admin", replace: true });
+    } catch (err) {
+      setLoading(false);
+      setError(err instanceof Error ? err.message : "Could not create owner account");
+    }
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-cream px-6 py-12">
       <div className="w-full max-w-md bg-background border hairline p-8 md:p-10">
         <div className="text-center mb-8">
           <p className="eyebrow text-ink/60">Hotel Velsatis</p>
           <h1 className="mt-3 font-display text-3xl text-ink">
-            {mode === "signin" ? "Admin Sign In" : "Reset password"}
+            {mode === "signin" ? "Admin Sign In" : mode === "forgot" ? "Reset password" : "Create owner access"}
           </h1>
         </div>
 
-        <form onSubmit={mode === "signin" ? onSignIn : onForgot} className="space-y-4">
+        <form onSubmit={mode === "signin" ? onSignIn : mode === "forgot" ? onForgot : onSetup} className="space-y-4">
           <label className="block">
             <span className="text-[0.68rem] tracking-luxe uppercase text-ink/60">Email</span>
             <input
@@ -68,14 +86,15 @@ function AuthPage() {
             />
           </label>
 
-          {mode === "signin" && (
+          {mode !== "forgot" && (
             <label className="block">
               <span className="text-[0.68rem] tracking-luxe uppercase text-ink/60">Password</span>
               <input
                 type="password" required value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="mt-2 w-full border border-ink/15 px-3 py-2.5 bg-transparent focus:outline-none focus:border-gold"
-                autoComplete="current-password"
+                autoComplete={mode === "setup" ? "new-password" : "current-password"}
+                minLength={mode === "setup" ? 8 : undefined}
               />
             </label>
           )}
@@ -87,20 +106,27 @@ function AuthPage() {
             type="submit" disabled={loading}
             className="w-full bg-ink text-cream py-3 text-xs tracking-luxe uppercase hover:bg-gold hover:text-ink transition-colors disabled:opacity-60"
           >
-            {loading ? "Please wait…" : mode === "signin" ? "Sign in" : "Send reset link"}
+            {loading ? "Please wait…" : mode === "signin" ? "Sign in" : mode === "forgot" ? "Send reset link" : "Create owner account"}
           </button>
         </form>
 
-        <div className="mt-6 flex items-center justify-between text-xs text-ink/60">
-          {mode === "signin" ? (
-            <button type="button" onClick={() => { setMode("forgot"); setError(null); setInfo(null); }} className="hover:text-gold underline underline-offset-4">
-              Forgot password?
-            </button>
-          ) : (
-            <button type="button" onClick={() => { setMode("signin"); setError(null); setInfo(null); }} className="hover:text-gold underline underline-offset-4">
-              Back to sign in
-            </button>
-          )}
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-3 text-xs text-ink/60">
+          <div className="flex flex-wrap gap-3">
+            {mode === "signin" ? (
+              <>
+                <button type="button" onClick={() => { setMode("forgot"); setError(null); setInfo(null); }} className="hover:text-gold underline underline-offset-4">
+                  Forgot password?
+                </button>
+                <button type="button" onClick={() => { setMode("setup"); setEmail("bouriguemustapha0@gmail.com"); setError(null); setInfo(null); }} className="hover:text-gold underline underline-offset-4">
+                  First-time setup
+                </button>
+              </>
+            ) : (
+              <button type="button" onClick={() => { setMode("signin"); setError(null); setInfo(null); }} className="hover:text-gold underline underline-offset-4">
+                Back to sign in
+              </button>
+            )}
+          </div>
           <Link to="/" className="hover:text-gold">← Back to site</Link>
         </div>
       </div>
